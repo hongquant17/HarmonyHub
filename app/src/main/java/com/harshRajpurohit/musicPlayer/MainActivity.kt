@@ -4,18 +4,17 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
@@ -25,8 +24,6 @@ import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.harshRajpurohit.musicPlayer.databinding.ActivityMainBinding
 import java.io.File
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -96,10 +93,13 @@ class MainActivity : AppCompatActivity() {
         binding.playlistBtn.setOnClickListener {
             startActivity(Intent(this@MainActivity, PlaylistActivity::class.java))
         }
+        binding.playNextBtn.setOnClickListener {
+            startActivity(Intent(this@MainActivity, PlayNext::class.java))
+        }
         binding.navView.setNavigationItemSelectedListener{
             when(it.itemId)
             {
-                R.id.navFeedback -> startActivity(Intent(this@MainActivity, FeedbackActivity::class.java))
+//                R.id.navFeedback -> startActivity(Intent(this@MainActivity, FeedbackActivity::class.java))
                 R.id.navSettings -> startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
                 R.id.navAbout -> startActivity(Intent(this@MainActivity, AboutActivity::class.java))
                 R.id.navExit -> {
@@ -114,8 +114,8 @@ class MainActivity : AppCompatActivity() {
                         }
                     val customDialog = builder.create()
                     customDialog.show()
-                    customDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED)
-                    customDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.RED)
+
+                    setDialogBtnBackground(this, customDialog)
                 }
             }
             true
@@ -163,8 +163,16 @@ class MainActivity : AppCompatActivity() {
         musicAdapter = MusicAdapter(this@MainActivity, MusicListMA)
         binding.musicRV.adapter = musicAdapter
         binding.totalSongs.text  = "Total Songs : "+musicAdapter.itemCount
+
+        //for refreshing layout on swipe from top
+        binding.refreshLayout.setOnRefreshListener {
+            MusicListMA = getAllAudio()
+            musicAdapter.updateMusicList(MusicListMA)
+
+            binding.refreshLayout.isRefreshing = false
+        }
     }
-    @SuppressLint("Recycle")
+    @SuppressLint("Recycle", "Range")
     @RequiresApi(Build.VERSION_CODES.R)
     private fun getAllAudio(): ArrayList<Music>{
         val tempList = ArrayList<Music>()
@@ -177,10 +185,10 @@ class MainActivity : AppCompatActivity() {
         if(cursor != null){
             if(cursor.moveToFirst())
                 do {
-                    val titleC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE))
-                    val idC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID))
-                    val albumC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM))
-                    val artistC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
+                    val titleC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE))?:"Unknown"
+                    val idC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID))?:"Unknown"
+                    val albumC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM))?:"Unknown"
+                    val artistC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))?:"Unknown"
                     val pathC = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA))
                     val durationC = cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION))
                     val albumIdC = cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID)).toString()
@@ -222,6 +230,7 @@ class MainActivity : AppCompatActivity() {
             MusicListMA = getAllAudio()
             musicAdapter.updateMusicList(MusicListMA)
         }
+        if(PlayerActivity.musicService != null) binding.nowPlaying.visibility = View.VISIBLE
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

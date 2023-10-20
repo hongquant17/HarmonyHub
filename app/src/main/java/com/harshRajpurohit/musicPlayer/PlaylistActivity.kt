@@ -2,6 +2,7 @@ package com.harshRajpurohit.musicPlayer
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,12 +34,14 @@ class PlaylistActivity : AppCompatActivity() {
         binding.playlistRV.adapter = adapter
         binding.backBtnPLA.setOnClickListener { finish() }
         binding.addPlaylistBtn.setOnClickListener { customAlertDialog() }
+
+        if(musicPlaylist.ref.isNotEmpty()) binding.instructionPA.visibility = View.GONE
     }
     private fun customAlertDialog(){
         val customDialog = LayoutInflater.from(this@PlaylistActivity).inflate(R.layout.add_playlist_dialog, binding.root, false)
         val binder = AddPlaylistDialogBinding.bind(customDialog)
         val builder = MaterialAlertDialogBuilder(this)
-        builder.setView(customDialog)
+        val dialog = builder.setView(customDialog)
             .setTitle("Playlist Details")
             .setPositiveButton("ADD"){ dialog, _ ->
                 val playlistName = binder.playlistName.text
@@ -49,7 +52,9 @@ class PlaylistActivity : AppCompatActivity() {
                         addPlaylist(playlistName.toString(), createdBy.toString())
                     }
                 dialog.dismiss()
-            }.show()
+            }.create()
+        dialog.show()
+        setDialogBtnBackground(this, dialog)
 
     }
     private fun addPlaylist(name: String, createdBy: String){
