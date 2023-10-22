@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.harshRajpurohit.musicPlayer"
+        applicationId "com.harmonyHub.musicPlayer"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 9
@@ -34,11 +34,12 @@ android {
     buildFeatures{
         viewBinding true
     }
-    namespace 'com.harshRajpurohit.musicPlayer'
+    namespace 'com.harmonyHub.musicPlayer'
 }
 
 dependencies {
 
+    //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
