@@ -73,7 +73,10 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
         binding.nextBtnPA.setOnClickListener { prevNextSong(increment = true) }
         binding.seekBarPA.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if(fromUser) musicService!!.mediaPlayer!!.seekTo(progress)
+                if(fromUser) {
+                    musicService!!.mediaPlayer!!.seekTo(progress)
+                    musicService!!.showNotification(if(isPlaying) R.drawable.pause_icon else R.drawable.play_icon)
+                }
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) = Unit
             override fun onStopTrackingTouch(seekBar: SeekBar?) = Unit
@@ -127,6 +130,7 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
             
         }
         binding.favouriteBtnPA.setOnClickListener {
+            fIndex = favouriteChecker(musicListPA[songPosition].id)
             if(isFavourite){
                 isFavourite = false
                 binding.favouriteBtnPA.setImageResource(R.drawable.favourite_empty_icon)
@@ -195,17 +199,19 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
     }
 
     private fun playMusic(){
-        binding.playPauseBtnPA.setIconResource(R.drawable.pause_icon)
-        musicService!!.showNotification(R.drawable.pause_icon, 1F)
         isPlaying = true
         musicService!!.mediaPlayer!!.start()
+        binding.playPauseBtnPA.setIconResource(R.drawable.pause_icon)
+        musicService!!.showNotification(R.drawable.pause_icon)
     }
 
     private fun pauseMusic(){
-        binding.playPauseBtnPA.setIconResource(R.drawable.play_icon)
-        musicService!!.showNotification(R.drawable.play_icon, 0F)
         isPlaying = false
         musicService!!.mediaPlayer!!.pause()
+        binding.playPauseBtnPA.setIconResource(R.drawable.play_icon)
+        musicService!!.showNotification(R.drawable.play_icon)
+
+
     }
     private fun prevNextSong(increment: Boolean){
         if(increment)
