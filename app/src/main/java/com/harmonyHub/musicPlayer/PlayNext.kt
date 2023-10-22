@@ -1,10 +1,10 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.HarmonyHub.musicPlayer.databinding.ActivityPlayNextBinding
+import com.harmonyHub.musicPlayer.databinding.ActivityPlayNextBinding
 
 class PlayNext : AppCompatActivity() {
 

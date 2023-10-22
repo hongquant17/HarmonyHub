@@ -1,4 +1,4 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.content.Context
 import android.content.Intent
@@ -16,10 +16,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.HarmonyHub.musicPlayer.MusicAdapter.MyHolder
-import com.HarmonyHub.musicPlayer.databinding.DetailsViewBinding
-import com.HarmonyHub.musicPlayer.databinding.MoreFeaturesBinding
-import com.HarmonyHub.musicPlayer.databinding.MusicViewBinding
+import com.harmonyHub.musicPlayer.MusicAdapter.MyHolder
+import com.harmonyHub.musicPlayer.databinding.DetailsViewBinding
+import com.harmonyHub.musicPlayer.databinding.MoreFeaturesBinding
+import com.harmonyHub.musicPlayer.databinding.MusicViewBinding
 
 class MusicAdapter(private val context: Context, private var musicList: ArrayList<Music>, private val playlistDetails: Boolean = false,
 private val selectionActivity: Boolean = false)

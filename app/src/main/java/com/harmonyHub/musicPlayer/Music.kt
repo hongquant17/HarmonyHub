@@ -1,4 +1,4 @@
- package com.HarmonyHub.musicPlayer
+ package com.harmonyHub.musicPlayer
 
 import android.content.Context
 import android.graphics.Bitmap

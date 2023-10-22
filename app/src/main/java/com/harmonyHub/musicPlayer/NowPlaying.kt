@@ -1,4 +1,4 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.HarmonyHub.musicPlayer.databinding.FragmentNowPlayingBinding
+import com.harmonyHub.musicPlayer.databinding.FragmentNowPlayingBinding
 
 class NowPlaying : Fragment() {
 

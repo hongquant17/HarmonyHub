@@ -1,4 +1,4 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -13,8 +13,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.HarmonyHub.musicPlayer.databinding.FavouriteViewBinding
-import com.HarmonyHub.musicPlayer.databinding.MoreFeaturesBinding
+import com.harmonyHub.musicPlayer.databinding.FavouriteViewBinding
+import com.harmonyHub.musicPlayer.databinding.MoreFeaturesBinding
 
 class FavouriteAdapter(private val context: Context, private var musicList: ArrayList<Music>,val playNext: Boolean = false) : RecyclerView.Adapter<FavouriteAdapter.MyHolder>() {
 

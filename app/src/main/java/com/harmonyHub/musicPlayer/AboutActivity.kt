@@ -1,8 +1,8 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.HarmonyHub.musicPlayer.databinding.ActivityAboutBinding
+import com.harmonyHub.musicPlayer.databinding.ActivityAboutBinding
 
 class AboutActivity : AppCompatActivity() {
 

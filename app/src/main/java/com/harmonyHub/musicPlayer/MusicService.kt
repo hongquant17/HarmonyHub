@@ -1,4 +1,4 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent

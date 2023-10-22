@@ -1,4 +1,4 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.annotation.SuppressLint
 import android.content.ComponentName
@@ -28,8 +28,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.HarmonyHub.musicPlayer.databinding.ActivityPlayerBinding
-import com.HarmonyHub.musicPlayer.databinding.AudioBoosterBinding
+import com.harmonyHub.musicPlayer.databinding.ActivityPlayerBinding
+import com.harmonyHub.musicPlayer.databinding.AudioBoosterBinding
 
 class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCompletionListener {
 

@@ -1,4 +1,4 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.HarmonyHub.musicPlayer.databinding.ActivityFavouriteBinding
+import com.harmonyHub.musicPlayer.databinding.ActivityFavouriteBinding
 
 class FavouriteActivity : AppCompatActivity() {
 

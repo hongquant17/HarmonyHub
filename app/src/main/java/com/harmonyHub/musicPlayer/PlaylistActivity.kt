@@ -1,4 +1,4 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.HarmonyHub.musicPlayer.databinding.ActivityPlaylistBinding
-import com.HarmonyHub.musicPlayer.databinding.AddPlaylistDialogBinding
+import com.harmonyHub.musicPlayer.databinding.ActivityPlaylistBinding
+import com.harmonyHub.musicPlayer.databinding.AddPlaylistDialogBinding
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList

@@ -1,4 +1,4 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 //Not Used Now
 
@@ -7,7 +7,7 @@ package com.HarmonyHub.musicPlayer
 //import android.os.Bundle
 //import android.widget.Toast
 //import androidx.appcompat.app.AppCompatActivity
-//import com.HarmonyHub.musicPlayer.databinding.ActivityFeedbackBinding
+//import com.harmonyHub.musicPlayer.databinding.ActivityFeedbackBinding
 //import java.util.*
 //import javax.mail.*
 //import javax.mail.internet.InternetAddress

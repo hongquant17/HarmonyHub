@@ -1,11 +1,11 @@
-package com.HarmonyHub.musicPlayer
+package com.harmonyHub.musicPlayer
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.HarmonyHub.musicPlayer.databinding.ActivitySelectionBinding
+import com.harmonyHub.musicPlayer.databinding.ActivitySelectionBinding
 
 class SelectionActivity : AppCompatActivity() {
 
