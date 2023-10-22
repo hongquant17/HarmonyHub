@@ -2,6 +2,7 @@ package com.harshRajpurohit.musicPlayer
 
 import android.graphics.Color
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.harshRajpurohit.musicPlayer.databinding.ActivitySettingsBinding
@@ -44,8 +45,7 @@ class SettingsActivity : AppCompatActivity() {
                 }
             val customDialog = builder.create()
             customDialog.show()
-
-            setDialogBtnBackground(this, customDialog)
+            customDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED)
         }
     }
 
@@ -65,8 +65,8 @@ class SettingsActivity : AppCompatActivity() {
                 }
             val customDialog = builder.create()
             customDialog.show()
-
-            setDialogBtnBackground(this, customDialog)
+            customDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED)
+            customDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.RED)
         }
     }
     private fun setVersionDetails():String{

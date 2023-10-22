@@ -9,10 +9,9 @@ import com.bumptech.glide.request.RequestOptions
 class NotificationReceiver:BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         when(intent?.action){
-            //only play next or prev song, when music list contains more than one song
-            ApplicationClass.PREVIOUS -> if(PlayerActivity.musicListPA.size > 1) prevNextSong(increment = false, context = context!!)
+            ApplicationClass.PREVIOUS -> prevNextSong(increment = false, context = context!!)
             ApplicationClass.PLAY -> if(PlayerActivity.isPlaying) pauseMusic() else playMusic()
-            ApplicationClass.NEXT -> if(PlayerActivity.musicListPA.size > 1) prevNextSong(increment = true, context = context!!)
+            ApplicationClass.NEXT -> prevNextSong(increment = true, context = context!!)
             ApplicationClass.EXIT ->{
                 exitApplication()
             }
@@ -21,19 +20,17 @@ class NotificationReceiver:BroadcastReceiver() {
     private fun playMusic(){
         PlayerActivity.isPlaying = true
         PlayerActivity.musicService!!.mediaPlayer!!.start()
-        PlayerActivity.musicService!!.showNotification(R.drawable.pause_icon)
+        PlayerActivity.musicService!!.showNotification(R.drawable.pause_icon, 1F)
         PlayerActivity.binding.playPauseBtnPA.setIconResource(R.drawable.pause_icon)
-        //for handling app crash during notification play - pause btn (While app opened through intent)
-        try{ NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.pause_icon) }catch (_: Exception){}
+        NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.pause_icon)
     }
 
     private fun pauseMusic(){
         PlayerActivity.isPlaying = false
         PlayerActivity.musicService!!.mediaPlayer!!.pause()
-        PlayerActivity.musicService!!.showNotification(R.drawable.play_icon)
+        PlayerActivity.musicService!!.showNotification(R.drawable.play_icon, 0F)
         PlayerActivity.binding.playPauseBtnPA.setIconResource(R.drawable.play_icon)
-        //for handling app crash during notification play - pause btn (While app opened through intent)
-        try{ NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.play_icon) }catch (_: Exception){}
+        NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.play_icon)
     }
 
     private fun prevNextSong(increment: Boolean, context: Context){
