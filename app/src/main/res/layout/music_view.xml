@@ -30,7 +30,7 @@
         android:layout_marginEnd="50dp"/>
 
     <TextView
-        android:id="@+id/songAlbumMV"
+        android:id="@+id/songArtistMV"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:text="@string/song_name"
