@@ -27,7 +27,7 @@ private val selectionActivity: Boolean = false)
 
     class MyHolder(binding: MusicViewBinding) : RecyclerView.ViewHolder(binding.root) {
         val title = binding.songNameMV
-        val album = binding.songAlbumMV
+        val artist = binding.songArtistMV
         val image = binding.imageMV
         val duration = binding.songDuration
         val root = binding.root
@@ -39,7 +39,7 @@ private val selectionActivity: Boolean = false)
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         holder.title.text = musicList[position].title
-        holder.album.text = musicList[position].album
+        holder.artist.text = musicList[position].artist
         holder.duration.text = formatDuration(musicList[position].duration)
         Glide.with(context)
             .load(musicList[position].artUri)

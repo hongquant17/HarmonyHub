@@ -29,7 +29,7 @@ class PlaylistDetails : AppCompatActivity() {
         currentPlaylistPos = intent.extras?.get("index") as Int
         try{PlaylistActivity.musicPlaylist.ref[currentPlaylistPos].playlist =
             checkPlaylist(playlist = PlaylistActivity.musicPlaylist.ref[currentPlaylistPos].playlist)}
-        catch(e: Exception){}
+        catch(_: Exception){}
         binding.playlistDetailsRV.setItemViewCacheSize(10)
         binding.playlistDetailsRV.setHasFixedSize(true)
         binding.playlistDetailsRV.layoutManager = LinearLayoutManager(this)
