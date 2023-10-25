@@ -169,15 +169,15 @@
             app:tint="@color/cool_pink" />
 
 <!--        Equalizer Button-->
-        <ImageButton
-            android:id="@+id/equalizerBtnPA"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/equalizer_icon"
-            android:background="?attr/selectableItemBackground"
-            android:contentDescription="@string/equalizer_btn"
-            android:layout_weight="1"
-            app:tint="@color/cool_pink" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/equalizerBtnPA"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/equalizer_icon"-->
+<!--            android:background="?attr/selectableItemBackground"-->
+<!--            android:contentDescription="@string/equalizer_btn"-->
+<!--            android:layout_weight="1"-->
+<!--            app:tint="@color/cool_pink" />-->
 
 <!--        Timer Button-->
         <ImageButton

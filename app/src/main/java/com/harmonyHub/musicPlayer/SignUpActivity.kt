@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.harmonyHub.musicPlayer.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.harmonyHub.musicPlayer.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -20,14 +20,15 @@ class SignUpActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.textView.setOnClickListener {
+        binding.signin.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
         }
-        binding.button.setOnClickListener {
-            val email = binding.emailEt.text.toString()
-            val pass = binding.passET.text.toString()
-            val confirmPass = binding.confirmPassEt.text.toString()
+
+        binding.signupSubmit.setOnClickListener {
+            val email = binding.editTextText.text.toString()
+            val pass = binding.password.text.toString()
+            val confirmPass = binding.repassword.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty() && confirmPass.isNotEmpty()) {
                 if (pass == confirmPass) {

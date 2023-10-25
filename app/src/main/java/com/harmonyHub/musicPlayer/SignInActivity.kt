@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.harmonyHub.musicPlayer.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.harmonyHub.musicPlayer.databinding.ActivitySignInBinding
 
 class SignInActivity : AppCompatActivity() {
 
@@ -48,10 +48,15 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
         if(firebaseAuth.currentUser != null){
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        FirebaseAuth.getInstance().signOut()
     }
 }

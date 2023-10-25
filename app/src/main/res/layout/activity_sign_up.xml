@@ -52,7 +52,7 @@
             android:background="@drawable/rounded_input"
             android:ems="10"
             android:fontFamily="@font/nunito_sans_bold"
-            android:hint="username"
+            android:hint="email"
             android:inputType="text"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
