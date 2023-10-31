@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "156065836346",
+    "project_id": "harmony-hub-5ec80",
+    "storage_bucket": "harmony-hub-5ec80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156065836346:android:f82f37de9f7e4784337403",
+        "android_client_info": {
+          "package_name": "com.harmonyHub.musicPlayer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTzuApCVneEPMTkWvVP9UJOlTnQBFiuEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156065836346:android:c26a8726ac0ade43337403",
+        "android_client_info": {
+          "package_name": "com.harshRajpurohit.musicPlayer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTzuApCVneEPMTkWvVP9UJOlTnQBFiuEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
