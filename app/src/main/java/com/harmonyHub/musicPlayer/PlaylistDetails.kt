@@ -45,23 +45,23 @@ class PlaylistDetails : AppCompatActivity() {
         binding.addBtnPD.setOnClickListener {
             startActivity(Intent(this, SelectionActivity::class.java))
         }
-        binding.removeAllPD.setOnClickListener {
-            val builder = MaterialAlertDialogBuilder(this)
-            builder.setTitle("Remove")
-                .setMessage("Do you want to remove all songs from playlist?")
-                .setPositiveButton("Yes"){ dialog, _ ->
-                    PlaylistActivity.musicPlaylist.ref[currentPlaylistPos].playlist.clear()
-                    adapter.refreshPlaylist()
-                    dialog.dismiss()
-                }
-                .setNegativeButton("No"){dialog, _ ->
-                    dialog.dismiss()
-                }
-            val customDialog = builder.create()
-            customDialog.show()
-
-            setDialogBtnBackground(this, customDialog)
-        }
+//        binding.removeAllPD.setOnClickListener {
+//            val builder = MaterialAlertDialogBuilder(this)
+//            builder.setTitle("Remove")
+//                .setMessage("Do you want to remove all songs from playlist?")
+//                .setPositiveButton("Yes"){ dialog, _ ->
+//                    PlaylistActivity.musicPlaylist.ref[currentPlaylistPos].playlist.clear()
+//                    adapter.refreshPlaylist()
+//                    dialog.dismiss()
+//                }
+//                .setNegativeButton("No"){dialog, _ ->
+//                    dialog.dismiss()
+//                }
+//            val customDialog = builder.create()
+//            customDialog.show()
+//
+//            setDialogBtnBackground(this, customDialog)
+//        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -86,5 +86,7 @@ class PlaylistDetails : AppCompatActivity() {
         val jsonStringPlaylist = GsonBuilder().create().toJson(PlaylistActivity.musicPlaylist)
         editor.putString("MusicPlaylist", jsonStringPlaylist)
         editor.apply()
+
+        if(PlayerActivity.musicService != null) binding.nowPlaying.visibility = View.VISIBLE
     }
 }

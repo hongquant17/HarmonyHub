@@ -15,32 +15,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <!--Add Button-->
-        <Button
-            android:id="@+id/addBtnPD"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:contentDescription="@string/add_song"
-            android:drawableLeft="@drawable/add_icon"
-            android:text="@string/add_song"
-            android:textAllCaps="false"
-            android:textColor="?colorOnPrimary"
-            tools:ignore="RtlHardcoded" />
+<!--        <Button-->
+<!--            android:id="@+id/addBtnPD"-->
+<!--            style="@style/Widget.AppCompat.Button.Borderless"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:contentDescription="@string/add_song"-->
+<!--            android:drawableLeft="@drawable/add_icon"-->
+<!--            android:text="@string/add_song"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="?colorOnPrimary"-->
+<!--            tools:ignore="RtlHardcoded" />-->
 
         <!--Remove Button-->
-        <Button
-            android:id="@+id/removeAllPD"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:contentDescription="@string/remove_all"
-            android:drawableLeft="@drawable/remove_icon"
-            android:text="@string/remove_all"
-            android:textAllCaps="false"
-            android:textColor="?colorOnPrimary"
-            tools:ignore="RtlHardcoded" />
+<!--        <Button-->
+<!--            android:id="@+id/removeAllPD"-->
+<!--            style="@style/Widget.AppCompat.Button.Borderless"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:contentDescription="@string/remove_all"-->
+<!--            android:drawableLeft="@drawable/remove_icon"-->
+<!--            android:text="@string/remove_all"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="?colorOnPrimary"-->
+<!--            tools:ignore="RtlHardcoded" />-->
+
 
     </LinearLayout>
 
@@ -122,6 +123,19 @@
                     app:tint="@color/white"
                     tools:ignore="MissingConstraints" />
 
+                <ImageButton
+                    android:id="@+id/addBtnPD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#4498E6"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/plus"
+                    app:tint="#FFFFFF" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -185,14 +199,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHeight_percent="0.57"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintVertical_bias="0.19">
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/playlistDetailsRV"
@@ -204,6 +219,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nowPlaying"
+            android:name="com.harmonyHub.musicPlayer.NowPlaying"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout="@layout/fragment_now_playing" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
