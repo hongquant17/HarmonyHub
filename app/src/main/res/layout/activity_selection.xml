@@ -20,18 +20,19 @@
             android:id="@+id/backBtnSA"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:src="@drawable/back_icon"
+            android:layout_margin="5dp"
+            android:backgroundTint="#FFFFFF"
             android:contentDescription="@string/back_btn"
-            android:backgroundTint="?colorOnPrimary"
-            app:tint="@color/black"
-            android:layout_margin="5dp"/>
+            android:src="@drawable/back"
+            app:tint="@color/black" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchViewSA"
+            android:theme="@style/AppSearchView"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:queryHint="@string/search_song"
-            app:searchIcon="@drawable/search_icon"
+            app:searchIcon="@drawable/search"
             android:focusable="false"
             app:iconifiedByDefault="false"
             android:background="@drawable/custom_search_view"
@@ -46,8 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
-        android:scrollbarThumbVertical="@drawable/scroll_bar_icon"
-        android:scrollbars="vertical"
         android:paddingBottom="50dp"
         android:layout_marginTop="10dp"/>
 
