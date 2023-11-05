@@ -35,7 +35,7 @@ class NowPlaying : Fragment() {
                 .apply(RequestOptions().placeholder(R.drawable.music_player_icon_slash_screen).centerCrop())
                 .into(binding.songImgNP)
             binding.songNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].title
-            binding.artistNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].title
+            binding.artistNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].artist
             PlayerActivity.musicService!!.showNotification(R.drawable.pause)
             playMusic()
         }
@@ -59,7 +59,7 @@ class NowPlaying : Fragment() {
                 .apply(RequestOptions().placeholder(R.drawable.music_player_icon_slash_screen).centerCrop())
                 .into(binding.songImgNP)
             binding.songNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].title
-            binding.artistNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].title
+            binding.artistNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].artist
             if(PlayerActivity.isPlaying) binding.playPauseBtnNP.setImageResource(R.drawable.pause)
             else binding.playPauseBtnNP.setImageResource(R.drawable.play)
         }
