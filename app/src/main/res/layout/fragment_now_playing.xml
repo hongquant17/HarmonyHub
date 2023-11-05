@@ -49,11 +49,11 @@
             app:layout_constraintVertical_bias="0.26" />
 
         <TextView
-            android:id="@+id/artist"
+            android:id="@+id/artistNameNP"
             android:layout_width="135dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_light"
-            android:text="TextView"
+            android:text="@string/song_artist"
             android:textColor="#E6EDF4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -45,7 +45,7 @@
         android:fontFamily="@font/poppins_light"
         android:gravity="center_vertical"
         android:singleLine="true"
-        android:text="@string/song_name"
+        android:text="@string/song_artist"
         android:textColor="#ACB8C2" />
 
     <TextView
