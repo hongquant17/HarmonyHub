@@ -3,7 +3,6 @@ package com.harmonyHub.musicPlayer
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
@@ -84,6 +83,6 @@ class PlaylistDetails : AppCompatActivity() {
         editor.putString("MusicPlaylist", jsonStringPlaylist)
         editor.apply()
 
-        if(PlayerActivity.musicService != null) binding.nowPlaying.visibility = View.VISIBLE
+//        if(PlayerActivity.musicService != null) binding.nowPlaying.visibility = View.VISIBLE
     }
 }
