@@ -114,7 +114,7 @@
                     android:backgroundTint="@android:color/transparent"
                     android:contentDescription="@string/back_btn"
                     android:padding="5dp"
-                    android:src="@drawable/download"
+                    android:src="@drawable/download_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.97"
