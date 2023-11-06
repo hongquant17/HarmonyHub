@@ -52,19 +52,15 @@
             android:id="@+id/artistNameNP"
             android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
             android:fontFamily="@font/poppins_light"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:singleLine="true"
             android:text="@string/song_artist"
-            android:textAlignment="viewStart"
             android:textColor="#E6EDF4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toEndOf="@+id/songImgNP"
             app:layout_constraintTop_toBottomOf="@+id/songNameNP"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.25" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
