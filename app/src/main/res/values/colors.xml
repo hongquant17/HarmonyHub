@@ -7,9 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightgrey">#CCCCCCCC</color>
+    <color name="lightgray">#808080</color>
+    <color name="darkgray">#404040</color>
 <!--    custom colors-->
-    <color name="cool_blue">#0091EA</color>
-    <color name="cool_green">#64DD17</color>
+    <color name="cool_blue">#4499E7</color>
+    <color name="cool_green">#12a822</color>
     <color name="cool_pink">#F50057</color>
     <color name="yellow">#FFD600</color>
 </resources>
