@@ -83,13 +83,13 @@
                 </LinearLayout>
 
                 <!--Total Songs Button-->
-                <TextView
-                    android:id="@+id/totalSongs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="@string/total_songs"
-                    android:textColor="?colorOnPrimary" />
+<!--                <TextView-->
+<!--                    android:id="@+id/totalSongs"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="10dp"-->
+<!--                    android:text="@string/total_songs"-->
+<!--                    android:textColor="?colorOnPrimary" />-->
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/musicRV"
