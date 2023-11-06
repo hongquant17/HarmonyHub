@@ -24,7 +24,7 @@ class NotificationReceiver:BroadcastReceiver() {
         PlayerActivity.musicService!!.showNotification(R.drawable.pause_icon)
         PlayerActivity.binding.playPauseBtnPA.setIconResource(R.drawable.pause_icon)
         //for handling app crash during notification play - pause btn (While app opened through intent)
-//        try{ NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.pause_icon) }catch (_: Exception){}
+        try{ NowPlaying.binding.playPauseBtnNP.setImageResource(R.drawable.pause_icon) }catch (_: Exception){}
     }
 
     private fun pauseMusic(){
@@ -33,7 +33,7 @@ class NotificationReceiver:BroadcastReceiver() {
         PlayerActivity.musicService!!.showNotification(R.drawable.play_icon)
         PlayerActivity.binding.playPauseBtnPA.setIconResource(R.drawable.play_icon)
         //for handling app crash during notification play - pause btn (While app opened through intent)
-//        try{ NowPlaying.binding.playPauseBtnNP.setIconResource(R.drawable.play_icon) }catch (_: Exception){}
+        try{ NowPlaying.binding.playPauseBtnNP.setImageResource(R.drawable.play_icon) }catch (_: Exception){}
     }
 
     private fun prevNextSong(increment: Boolean, context: Context){
