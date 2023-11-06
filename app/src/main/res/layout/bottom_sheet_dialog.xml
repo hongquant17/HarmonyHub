@@ -5,25 +5,30 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="5dp"
+        android:text="Stop audio in"
+        android:textSize="18sp"
+        android:textColor="@color/black"/>
 
     <LinearLayout
         android:id="@+id/min_15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
         tools:ignore="UseCompoundDrawables">
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/timer_icon"
-            app:tint="@color/cool_pink"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/min_15" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/min_15"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@color/black"
             android:padding="8dp"/>
     </LinearLayout>
@@ -32,19 +37,14 @@
         android:id="@+id/min_30"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
         tools:ignore="UseCompoundDrawables">
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/timer_icon"
-            app:tint="@color/cool_pink"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/min_30" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/min_30"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@color/black"
             android:padding="8dp"/>
     </LinearLayout>
@@ -53,19 +53,14 @@
         android:id="@+id/min_60"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
         tools:ignore="UseCompoundDrawables">
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/timer_icon"
-            app:tint="@color/cool_pink"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/min_60" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/min_60"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textColor="@color/black"
             android:padding="8dp"/>
     </LinearLayout>

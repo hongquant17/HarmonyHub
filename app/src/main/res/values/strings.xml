@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Music Player</string>
+    <string name="app_name">Harmony Hub</string>
     <string name="shuffle_btn">Shuffle</string>
     <string name="favourites_btn">Favourites</string>
     <string name="playlist_btn">Playlists</string>
