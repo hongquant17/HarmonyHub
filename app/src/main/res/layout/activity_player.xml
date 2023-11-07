@@ -23,10 +23,10 @@
 
             <ImageButton
                 android:id="@+id/backBtnPA"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="20dp"
-                android:backgroundTint="@android:color/transparent"
+                android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/back_btn"
                 android:padding="10dp"
                 android:src="@drawable/back_icon"
@@ -55,10 +55,10 @@
 
             <ImageButton
                 android:id="@+id/downloadButtonPA"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="@android:color/transparent"
+                android:background="?attr/selectableItemBackground"
                 android:padding="5dp"
                 android:src="@drawable/download_icon"
                 app:layout_constraintBottom_toBottomOf="parent"

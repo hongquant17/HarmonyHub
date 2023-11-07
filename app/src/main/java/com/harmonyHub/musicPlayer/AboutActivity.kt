@@ -13,10 +13,10 @@ class AboutActivity : AppCompatActivity() {
         setTheme(MainActivity.currentThemeNav[MainActivity.themeIndex])
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.title = "About"
-        binding.aboutText.text = aboutText()
+//        supportActionBar?.title = "About"
+//        binding.aboutText.text = aboutText()
     }
-    private fun aboutText(): String{
-        return "Project Harmony Hub"
-    }
+//    private fun aboutText(): String{
+//        return "Project Harmony Hub"
+//    }
 }

@@ -90,10 +90,11 @@
         android:id="@+id/versionName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/version_name"
+
         android:background="@color/white"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:padding="16dp"/>
+<!--    android:text="@string/version_name"-->
 
 </LinearLayout>
