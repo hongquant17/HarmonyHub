@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.harmonyHub.musicPlayer.databinding.ActivityFavouriteBinding
 
 class FavouriteActivity : AppCompatActivity() {
@@ -26,23 +27,26 @@ class FavouriteActivity : AppCompatActivity() {
         favouriteSongs = checkPlaylist(favouriteSongs)
         binding.backBtnFA.setOnClickListener { finish() }
         binding.favouriteRV.setHasFixedSize(true)
-        binding.favouriteRV.setItemViewCacheSize(13)
-        binding.favouriteRV.layoutManager = GridLayoutManager(this, 4)
+        binding.favouriteRV.setItemViewCacheSize(10)
+        binding.favouriteRV.layoutManager = LinearLayoutManager(this)
+//        binding.favouriteRV.layoutManager = GridLayoutManager(this, 4)
         adapter = FavouriteAdapter(this, favouriteSongs)
         binding.favouriteRV.adapter = adapter
 
+        binding.moreInfoPD.text = "${adapter.itemCount} songs to sing in the shower."
+
         favouritesChanged = false
 
-        if(favouriteSongs.size < 1) binding.shuffleBtnFA.visibility = View.INVISIBLE
+//        if(favouriteSongs.size < 1) binding.shuffleBtnFA.visibility = View.INVISIBLE
 
-        if(favouriteSongs.isNotEmpty()) binding.instructionFV.visibility = View.GONE
+//        if(favouriteSongs.isNotEmpty()) binding.instructionFV.visibility = View.GONE
 
-        binding.shuffleBtnFA.setOnClickListener {
-            val intent = Intent(this, PlayerActivity::class.java)
-            intent.putExtra("index", 0)
-            intent.putExtra("class", "FavouriteShuffle")
-            startActivity(intent)
-        }
+//        binding.shuffleBtnFA.setOnClickListener {
+//            val intent = Intent(this, PlayerActivity::class.java)
+//            intent.putExtra("index", 0)
+//            intent.putExtra("class", "FavouriteShuffle")
+//            startActivity(intent)
+//        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
