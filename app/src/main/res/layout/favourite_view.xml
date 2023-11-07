@@ -1,29 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="15dp"
-    android:layout_margin="5dp">
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    app:cardCornerRadius="0dp"
+    android:layout_margin="0dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/songImgFV"
-        android:layout_width="80dp"
-        android:layout_height="75dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="clip_horizontal|center_vertical"
+        android:layout_marginVertical="0dp"
+        android:layout_marginStart="30dp"
         app:shapeAppearanceOverlay="@style/curved"
         android:contentDescription="@string/song_name"
         android:src="@drawable/music_player_icon_slash_screen"
-        android:padding="5dp"/>
+        android:padding="0dp"/>
 
+    <!--    <TextView-->
+    <!--        android:id="@+id/songNameFV"-->
+    <!--        android:layout_width="80dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:maxLines="2"-->
+    <!--        android:textColor="?colorOnPrimary"-->
+    <!--        android:text="@string/song_name"-->
+    <!--        android:gravity="center"-->
+    <!--        android:layout_marginTop="75dp"-->
+    <!--        android:padding="5dp"/>-->
     <TextView
         android:id="@+id/songNameFV"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:textColor="?colorOnPrimary"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="5dp"
+        android:layout_toStartOf="@id/songDuration"
+        android:layout_toEndOf="@id/imageMV"
+        android:fontFamily="@font/nunito_sans_semibold"
+        android:gravity="center_vertical"
+        android:singleLine="true"
         android:text="@string/song_name"
+        android:textColor="#191D21"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/songArtistFV"
+        android:layout_width="170dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="35dp"
+        android:layout_toStartOf="@id/songDuration"
+        android:layout_toEndOf="@id/imageMV"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="@string/song_artist"
+        android:textColor="#ACB8C2" />
+
+    <ImageButton
+        android:id="@+id/favouriteBtnPA"
+        android:layout_weight="1"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center|end"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:layout_marginTop="75dp"
-        android:padding="5dp"/>
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/favourites_btn"
+        android:src="@drawable/favourite_icon" />
+
+
 
 </com.google.android.material.card.MaterialCardView>
