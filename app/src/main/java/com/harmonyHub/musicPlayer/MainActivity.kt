@@ -94,32 +94,33 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, PlaylistActivity::class.java))
         }
         binding.playNextBtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity, PlayNext::class.java))
+//            startActivity(Intent(this@MainActivity, PlayNext::class.java))
+            startActivity(Intent(this@MainActivity, Newfeed::class.java))
         }
-        binding.navView.setNavigationItemSelectedListener{
-            when(it.itemId)
-            {
-//                R.id.navFeedback -> startActivity(Intent(this@MainActivity, FeedbackActivity::class.java))
-                R.id.navSettings -> startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
-                R.id.navAbout -> startActivity(Intent(this@MainActivity, AboutActivity::class.java))
-                R.id.navExit -> {
-                    val builder = MaterialAlertDialogBuilder(this)
-                    builder.setTitle("Exit")
-                        .setMessage("Do you want to close app?")
-                        .setPositiveButton("Yes"){ _, _ ->
-                            exitApplication()
-                        }
-                        .setNegativeButton("No"){dialog, _ ->
-                            dialog.dismiss()
-                        }
-                    val customDialog = builder.create()
-                    customDialog.show()
-
-                    setDialogBtnBackground(this, customDialog)
-                }
-            }
-            true
-        }
+//        binding.navView.setNavigationItemSelectedListener{
+//            when(it.itemId)
+//            {
+////                R.id.navFeedback -> startActivity(Intent(this@MainActivity, FeedbackActivity::class.java))
+//                R.id.navSettings -> startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+//                R.id.navAbout -> startActivity(Intent(this@MainActivity, AboutActivity::class.java))
+//                R.id.navExit -> {
+//                    val builder = MaterialAlertDialogBuilder(this)
+//                    builder.setTitle("Exit")
+//                        .setMessage("Do you want to close app?")
+//                        .setPositiveButton("Yes"){ _, _ ->
+//                            exitApplication()
+//                        }
+//                        .setNegativeButton("No"){dialog, _ ->
+//                            dialog.dismiss()
+//                        }
+//                    val customDialog = builder.create()
+//                    customDialog.show()
+//
+//                    setDialogBtnBackground(this, customDialog)
+//                }
+//            }
+//            true
+//        }
     }
     //For requesting permission
     private fun requestRuntimePermission() :Boolean{

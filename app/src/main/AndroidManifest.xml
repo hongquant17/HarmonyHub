@@ -21,6 +21,9 @@
         android:theme="@style/splash_screen"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".Newfeed"
+            android:exported="false" />
+        <activity
             android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
@@ -87,15 +90,14 @@
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
-
-        </activity>
+            tools:ignore="LockedOrientationActivity"></activity>
 
         <service android:name=".MusicService" />
 
         <receiver
             android:name=".NotificationReceiver"
             android:enabled="true" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
