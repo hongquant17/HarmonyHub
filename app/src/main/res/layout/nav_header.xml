@@ -12,9 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="50dp"
-
+        android:src="@mipmap/logo"
         android:contentDescription="@string/app_icon"/>
-<!--    android:src="@mipmap/music_player_icon_round"-->
 
     <TextView
         android:layout_width="match_parent"

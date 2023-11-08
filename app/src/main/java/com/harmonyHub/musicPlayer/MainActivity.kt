@@ -93,9 +93,9 @@ class MainActivity : AppCompatActivity() {
         binding.playlistBtn.setOnClickListener {
             startActivity(Intent(this@MainActivity, PlaylistActivity::class.java))
         }
-        binding.playNextBtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity, PlayNext::class.java))
-        }
+//        binding.playNextBtn.setOnClickListener {
+//            startActivity(Intent(this@MainActivity, PlayNext::class.java))
+//        }
         binding.navView.setNavigationItemSelectedListener{
             when(it.itemId)
             {
@@ -256,7 +256,8 @@ class MainActivity : AppCompatActivity() {
                 if(newText != null){
                     val userInput = newText.lowercase()
                     for (song in MusicListMA)
-                        if(song.title.lowercase().contains(userInput))
+                        if(song.title.lowercase().contains(userInput) || song.artist.lowercase().contains(userInput)
+                            || song.album.lowercase().contains(userInput))
                             musicListSearch.add(song)
                     search = true
                     musicAdapter.updateMusicList(searchList = musicListSearch)
