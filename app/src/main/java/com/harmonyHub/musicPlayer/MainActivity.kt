@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.favouriteBtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity, FavouriteActivity::class.java))
+            startActivity(Intent(this@MainActivity, OnlineMusic::class.java))
         }
         binding.playlistBtn.setOnClickListener {
             startActivity(Intent(this@MainActivity, PlaylistActivity::class.java))
@@ -96,6 +96,29 @@ class MainActivity : AppCompatActivity() {
         binding.playNextBtn.setOnClickListener {
 //            startActivity(Intent(this@MainActivity, PlayNext::class.java))
             startActivity(Intent(this@MainActivity, Newfeed::class.java))
+        binding.navView.setNavigationItemSelectedListener{
+            when(it.itemId)
+            {
+//                R.id.navFeedback -> startActivity(Intent(this@MainActivity, FeedbackActivity::class.java))
+                R.id.navSettings -> startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+//                R.id.navAbout -> startActivity(Intent(this@MainActivity, AboutActivity::class.java))
+                R.id.navExit -> {
+                    val builder = MaterialAlertDialogBuilder(this)
+                    builder.setTitle("Exit")
+                        .setMessage("Do you want to log out?")
+                        .setPositiveButton("Yes"){ _, _ ->
+                            exitApplication()
+                        }
+                        .setNegativeButton("No"){dialog, _ ->
+                            dialog.dismiss()
+                        }
+                    val customDialog = builder.create()
+                    customDialog.show()
+
+                    setDialogBtnBackground(this, customDialog)
+                }
+            }
+            true
         }
 //        binding.navView.setNavigationItemSelectedListener{
 //            when(it.itemId)
@@ -257,7 +280,8 @@ class MainActivity : AppCompatActivity() {
                 if(newText != null){
                     val userInput = newText.lowercase()
                     for (song in MusicListMA)
-                        if(song.title.lowercase().contains(userInput))
+                        if(song.title.lowercase().contains(userInput) || song.artist.lowercase().contains(userInput)
+                            || song.album.lowercase().contains(userInput))
                             musicListSearch.add(song)
                     search = true
                     musicAdapter.updateMusicList(searchList = musicListSearch)

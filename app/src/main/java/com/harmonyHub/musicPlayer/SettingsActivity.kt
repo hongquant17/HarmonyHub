@@ -28,7 +28,7 @@ class SettingsActivity : AppCompatActivity() {
         binding.coolPurpleTheme.setOnClickListener { saveTheme(2) }
         binding.coolGreenTheme.setOnClickListener { saveTheme(3) }
         binding.coolBlackTheme.setOnClickListener { saveTheme(4) }
-        binding.versionName.text = setVersionDetails()
+//        binding.versionName.text = setVersionDetails()
         binding.sortBtn.setOnClickListener {
             val menuList = arrayOf("Recently Added", "Song Title", "File Size")
             var currentSort = MainActivity.sortOrder
@@ -69,7 +69,7 @@ class SettingsActivity : AppCompatActivity() {
             setDialogBtnBackground(this, customDialog)
         }
     }
-    private fun setVersionDetails():String{
-        return "Version Name: ${BuildConfig.VERSION_NAME}"
-    }
+//    private fun setVersionDetails():String{
+//        return "Version Name: ${BuildConfig.VERSION_NAME}"
+//    }
 }
