@@ -24,6 +24,12 @@ class PlaylistViewAdapter(private val context: Context, private var playlistList
         return MyHolder(PlaylistViewBinding.inflate(LayoutInflater.from(context), parent, false))
     }
 
+    private var onItemClickListener: ((Playlist) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Playlist) -> Unit) {
+        onItemClickListener = listener
+    }
+
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         if(MainActivity.themeIndex == 4){
             holder.root.strokeColor = ContextCompat.getColor(context, R.color.white)
@@ -68,4 +74,5 @@ class PlaylistViewAdapter(private val context: Context, private var playlistList
         playlistList.addAll(PlaylistActivity.musicPlaylist.ref)
         notifyDataSetChanged()
     }
+
 }
