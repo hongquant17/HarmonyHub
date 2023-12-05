@@ -1,6 +1,7 @@
 package com.harmonyHub.musicPlayer
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
@@ -11,7 +12,6 @@ import com.harmonyHub.musicPlayer.databinding.ActivityPlaylistBinding
 import com.harmonyHub.musicPlayer.databinding.AddPlaylistDialogBinding
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class PlaylistActivity : AppCompatActivity() {
 
@@ -29,7 +29,7 @@ class PlaylistActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.playlistRV.setHasFixedSize(true)
         binding.playlistRV.setItemViewCacheSize(13)
-        binding.playlistRV.layoutManager = GridLayoutManager(this@PlaylistActivity, 2)
+        binding.playlistRV.layoutManager = GridLayoutManager(this@PlaylistActivity, 1)
         adapter = PlaylistViewAdapter(this, playlistList = musicPlaylist.ref)
         binding.playlistRV.adapter = adapter
         binding.backBtnPLA.setOnClickListener { finish() }
@@ -42,22 +42,25 @@ class PlaylistActivity : AppCompatActivity() {
         val binder = AddPlaylistDialogBinding.bind(customDialog)
         val builder = MaterialAlertDialogBuilder(this)
         val dialog = builder.setView(customDialog)
-            .setTitle("Playlist Details")
-            .setPositiveButton("ADD"){ dialog, _ ->
+            .setTitle("Give your playlist a name")
+            .setPositiveButton("Create"){ dialog, _ ->
                 val playlistName = binder.playlistName.text
-                val createdBy = binder.yourName.text
-                if(playlistName != null && createdBy != null)
-                    if(playlistName.isNotEmpty() && createdBy.isNotEmpty())
-                    {
-                        addPlaylist(playlistName.toString(), createdBy.toString())
-                    }
+//                val createdBy = binder.yourName.text
+//                if(playlistName != null && createdBy != null)
+//                    if(playlistName.isNotEmpty() && createdBy.isNotEmpty())
+//                    {
+//                        addPlaylist(playlistName.toString(), createdBy.toString())
+//                    }
+                if (playlistName != null) {
+                    addPlaylist(playlistName.toString())
+                }
                 dialog.dismiss()
             }.create()
         dialog.show()
         setDialogBtnBackground(this, dialog)
 
     }
-    private fun addPlaylist(name: String, createdBy: String){
+    private fun addPlaylist(name: String){
         var playlistExists = false
         for(i in musicPlaylist.ref) {
             if (name == i.name){
@@ -70,7 +73,7 @@ class PlaylistActivity : AppCompatActivity() {
             val tempPlaylist = Playlist()
             tempPlaylist.name = name
             tempPlaylist.playlist = ArrayList()
-            tempPlaylist.createdBy = createdBy
+//            tempPlaylist.createdBy = createdBy
             val calendar = Calendar.getInstance().time
             val sdf = SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH)
             tempPlaylist.createdOn = sdf.format(calendar)

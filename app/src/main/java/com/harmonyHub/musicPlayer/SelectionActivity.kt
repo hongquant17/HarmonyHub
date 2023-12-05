@@ -44,7 +44,7 @@ class SelectionActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         //for black theme checking
-        if(MainActivity.themeIndex == 4)
+        if(MainActivity.themeIndex == 1)
         {
             binding.searchViewSA.backgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
         }

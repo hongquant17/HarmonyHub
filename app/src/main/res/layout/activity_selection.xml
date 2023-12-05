@@ -23,7 +23,7 @@
             android:layout_margin="5dp"
             android:backgroundTint="#FFFFFF"
             android:contentDescription="@string/back_btn"
-            android:src="@drawable/back"
+            android:src="@drawable/back_icon"
             app:tint="@color/black" />
 
         <androidx.appcompat.widget.SearchView

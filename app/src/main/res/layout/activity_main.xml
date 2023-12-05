@@ -39,6 +39,7 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/shuffle_btn"
                         android:drawableTop="@drawable/shuffle_icon"
+                        android:iconTint="@android:color/transparent"
                         android:text="@string/shuffle_btn"
                         android:textAllCaps="false"
                         android:textColor="?colorOnPrimary" />
@@ -51,6 +52,7 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/favourites_btn"
                         android:drawableTop="@drawable/favourite_icon"
+                        android:backgroundTint="@android:color/transparent"
                         android:text="@string/favourites_btn"
                         android:textAllCaps="false"
                         android:textColor="?colorOnPrimary" />
@@ -63,6 +65,7 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/playlist_btn"
                         android:drawableTop="@drawable/playlist_icon"
+                        android:backgroundTint="@android:color/transparent"
                         android:text="@string/playlist_btn"
                         android:textAllCaps="false"
                         android:textColor="?colorOnPrimary" />

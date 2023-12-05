@@ -4,21 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/now_playing_back"
+    android:background="@drawable/player_tab_bars"
+    android:backgroundTint="?themeColor"
     tools:context=".NowPlaying">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="7dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/songImgNP"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="7dp"
-            android:src="@drawable/music_player_icon_slash_screen"
+            android:layout_marginVertical="5dp"
+            android:src="@mipmap/logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
@@ -46,7 +48,7 @@
             app:layout_constraintHorizontal_bias="0.07"
             app:layout_constraintStart_toEndOf="@+id/songImgNP"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.26" />
+            app:layout_constraintVertical_bias="0.25" />
 
         <TextView
             android:id="@+id/artistNameNP"
@@ -118,7 +120,7 @@
                 android:background="@android:color/transparent"
                 android:backgroundTint="#FFFFFF"
                 android:src="@drawable/next_icon"
-                android:tint="#FEFEFE"
+                android:tint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.88"
@@ -129,10 +131,10 @@
                 android:id="@+id/playPauseBtnNP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#4498E6"
-                android:backgroundTint="#4498E6"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@color/white"
                 android:src="@drawable/play_icon"
-                android:tint="#FEFEFE"
+                android:tint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/nextBtnNP"
                 app:layout_constraintHorizontal_bias="0.49"

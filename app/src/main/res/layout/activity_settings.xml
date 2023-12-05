@@ -1,100 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity"
-    android:orientation="vertical"
-    android:background="@color/black">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/set_theme"
-        android:background="@color/white"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="2dp"
-        android:gravity="center"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="@color/white">
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/coolPinkTheme"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/circle_icon"
-            android:tint="@color/cool_pink"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/coolBlueTheme"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/circle_icon"
-            android:tint="@color/cool_blue"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/coolPurpleTheme"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/circle_icon"
-            android:tint="@color/purple_500"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/coolGreenTheme"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/circle_icon"
-            android:tint="@color/cool_green"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/coolBlackTheme"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/circle_icon"
-            android:tint="@color/black"/>
-
-    </LinearLayout>
+    android:background="@color/white"
+    tools:context=".SettingsActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:paddingHorizontal="16dp"
-        android:layout_marginVertical="2dp">
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:text="@string/sort_by"
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:background="@color/white"
-            android:textSize="18sp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/set_theme"
             android:textColor="@color/black"
-            android:gravity="center|start"
-            android:layout_weight="1"
-            android:paddingStart="5dp"
-            tools:ignore="RtlSymmetry" />
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/sortBtn"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/sort_icon"
-            android:tint="@color/cool_pink"
-            android:padding="5dp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+            <!--        <com.google.android.material.imageview.ShapeableImageView-->
+            <!--            android:id="@+id/coolPinkTheme"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--            android:layout_weight="1"-->
+            <!--            android:src="@drawable/circle_icon"-->
+            <!--            android:tint="@color/cool_pink"/>-->
+
+            <LinearLayout
+                android:id="@+id/coolBlueTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/circle_icon"
+                    android:tint="@color/cool_blue" />
+
+                <TextView
+                    android:id="@+id/textViewBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Blue theme" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/coolBlackTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/circle_icon"
+                    android:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/textViewBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Black theme" />
+
+            </LinearLayout>
+
+            <!--        <com.google.android.material.imageview.ShapeableImageView-->
+            <!--            android:id="@+id/coolPurpleTheme"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--            android:layout_weight="1"-->
+            <!--            android:src="@drawable/circle_icon"-->
+            <!--            android:tint="@color/purple_500"/>-->
+            <!--        <com.google.android.material.imageview.ShapeableImageView-->
+            <!--            android:id="@+id/coolGreenTheme"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--            android:layout_weight="1"-->
+            <!--            android:src="@drawable/circle_icon"-->
+            <!--            android:tint="@color/cool_green"/>-->
+
+        </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/versionName"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
+        android:layout_height="wrap_content"
         android:background="@color/white"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:padding="16dp"/>
-<!--    android:text="@string/version_name"-->
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1">
+    </LinearLayout>
 
-</LinearLayout>
+    <!--    <TextView-->
+    <!--        android:id="@+id/versionName"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+
+    <!--        android:layout_marginBottom="1dp"-->
+    <!--        android:background="@color/white"-->
+    <!--        android:padding="16dp"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />-->
+    <!--    &lt;!&ndash;    android:text="@string/version_name"&ndash;&gt;-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

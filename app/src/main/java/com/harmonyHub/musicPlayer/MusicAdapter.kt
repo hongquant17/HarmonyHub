@@ -43,7 +43,7 @@ private val selectionActivity: Boolean = false)
         holder.duration.text = formatDuration(musicList[position].duration)
         Glide.with(context)
             .load(musicList[position].artUri)
-            .apply(RequestOptions().placeholder(R.drawable.music_player_icon_slash_screen).centerCrop())
+            .apply(RequestOptions().placeholder(R.mipmap.logo).centerCrop())
             .into(holder.image)
 
         //for play next feature
@@ -107,7 +107,7 @@ private val selectionActivity: Boolean = false)
             selectionActivity ->{
                 holder.root.setOnClickListener {
                     if(addSong(musicList[position]))
-                        holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.cool_pink))
+                        holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.cool_blue))
                     else
                         holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
 

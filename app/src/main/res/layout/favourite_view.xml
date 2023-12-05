@@ -15,7 +15,7 @@
         android:layout_marginStart="30dp"
         app:shapeAppearanceOverlay="@style/curved"
         android:contentDescription="@string/song_name"
-        android:src="@drawable/music_player_icon_slash_screen"
+        android:src="@mipmap/logo"
         android:padding="0dp"/>
 
     <!--    <TextView-->

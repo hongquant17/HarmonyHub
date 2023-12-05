@@ -16,6 +16,7 @@ class PlaylistViewAdapter(private val context: Context, private var playlistList
     class MyHolder(binding: PlaylistViewBinding) : RecyclerView.ViewHolder(binding.root) {
         val image = binding.playlistImg
         val name = binding.playlistName
+//        val creator = binding.playlistCreator
         val root = binding.root
         val delete = binding.playlistDeleteBtn
     }
@@ -25,10 +26,8 @@ class PlaylistViewAdapter(private val context: Context, private var playlistList
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        if(MainActivity.themeIndex == 4){
-            holder.root.strokeColor = ContextCompat.getColor(context, R.color.white)
-        }
         holder.name.text = playlistList[position].name
+//        holder.creator.text = playlistList[position].createdBy
         holder.name.isSelected = true
         holder.delete.setOnClickListener {
             val builder = MaterialAlertDialogBuilder(context)
@@ -55,7 +54,7 @@ class PlaylistViewAdapter(private val context: Context, private var playlistList
         if(PlaylistActivity.musicPlaylist.ref[position].playlist.size > 0){
             Glide.with(context)
                 .load(PlaylistActivity.musicPlaylist.ref[position].playlist[0].artUri)
-                .apply(RequestOptions().placeholder(R.drawable.music_player_icon_slash_screen).centerCrop())
+                .apply(RequestOptions().placeholder(R.mipmap.logo).centerCrop())
                 .into(holder.image)
         }
     }

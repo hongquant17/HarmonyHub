@@ -49,7 +49,8 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/playlist_header"
+        android:background="@drawable/playlist_cover"
+        android:backgroundTint="?themeColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.4"
@@ -73,7 +74,7 @@
                 android:backgroundTint="@android:color/transparent"
                 android:contentDescription="@string/back_btn"
                 android:padding="5dp"
-                android:src="@drawable/back"
+                android:src="@drawable/back_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.03"
@@ -108,33 +109,32 @@
                 <!--                    tools:ignore="MissingConstraints" />-->
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/addBtnPD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/shuffleBtnPD"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/add_icon"
+                    android:backgroundTint="@android:color/transparent"
+                    app:tint="@color/white" />
+                <ImageButton
+                    android:id="@+id/shuffleBtnPD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"
                     android:contentDescription="@string/back_btn"
                     android:padding="5dp"
-                    android:src="@drawable/download_icon"
+                    android:src="@drawable/shuffle_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.97"
+                    app:layout_constraintHorizontal_bias="1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/white"
                     tools:ignore="MissingConstraints" />
-
-                <ImageButton
-                    android:id="@+id/addBtnPD"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#4498E6"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imageButton"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/plus"
-                    app:tint="#FFFFFF" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

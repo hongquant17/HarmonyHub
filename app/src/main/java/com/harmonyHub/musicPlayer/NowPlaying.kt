@@ -32,7 +32,7 @@ class NowPlaying : Fragment() {
             PlayerActivity.musicService!!.createMediaPlayer()
             Glide.with(requireContext())
                 .load(PlayerActivity.musicListPA[PlayerActivity.songPosition].artUri)
-                .apply(RequestOptions().placeholder(R.drawable.music_player_icon_slash_screen).centerCrop())
+                .apply(RequestOptions().placeholder(R.mipmap.logo).centerCrop())
                 .into(binding.songImgNP)
             binding.songNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].title
             binding.artistNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].artist
@@ -56,7 +56,7 @@ class NowPlaying : Fragment() {
             binding.artistNameNP.isSelected = true
             Glide.with(requireContext())
                 .load(PlayerActivity.musicListPA[PlayerActivity.songPosition].artUri)
-                .apply(RequestOptions().placeholder(R.drawable.music_player_icon_slash_screen).centerCrop())
+                .apply(RequestOptions().placeholder(R.mipmap.logo).centerCrop())
                 .into(binding.songImgNP)
             binding.songNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].title
             binding.artistNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].artist
