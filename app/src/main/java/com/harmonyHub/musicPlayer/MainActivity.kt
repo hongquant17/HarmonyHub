@@ -88,14 +88,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.favouriteBtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity, OnlineMusic::class.java))
+            startActivity(Intent(this@MainActivity, FavouriteActivity::class.java))
         }
         binding.playlistBtn.setOnClickListener {
             startActivity(Intent(this@MainActivity, PlaylistActivity::class.java))
         }
-//        binding.playNextBtn.setOnClickListener {
-//            startActivity(Intent(this@MainActivity, PlayNext::class.java))
-//        }
+        binding.playNextBtn.setOnClickListener {
+            startActivity(Intent(this@MainActivity, OnlineMusic::class.java))
+        }
         binding.navView.setNavigationItemSelectedListener{
             when(it.itemId)
             {
