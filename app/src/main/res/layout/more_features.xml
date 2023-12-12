@@ -51,7 +51,7 @@
             android:id="@+id/AddToPNBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:icon="@drawable/play_next_icon"
+            app:icon="@drawable/favourite_empty_icon"
             android:text="@string/add_song"
             app:iconGravity="top"
             android:background="?attr/selectableItemBackground"

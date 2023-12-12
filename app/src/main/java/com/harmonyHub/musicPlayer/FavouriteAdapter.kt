@@ -35,7 +35,7 @@ class FavouriteAdapter(private val context: Context, private var musicList: Arra
         holder.artist.text = musicList[position].artist
         Glide.with(context)
             .load(musicList[position].artUri)
-            .apply(RequestOptions().placeholder(R.drawable.music_player_icon_slash_screen).centerCrop())
+            .apply(RequestOptions().placeholder(R.mipmap.logo).centerCrop())
             .into(holder.image)
 
         //when play next music is clicked

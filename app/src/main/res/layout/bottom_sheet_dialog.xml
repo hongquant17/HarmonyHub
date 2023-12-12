@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="?colorTertiary">
 
     <TextView
         android:id="@+id/textView"
@@ -15,7 +15,7 @@
         android:layout_margin="5dp"
         android:text="Stop audio in"
         android:textSize="18sp"
-        android:textColor="@color/black"/>
+        android:textColor="?colorOnPrimary"/>
 
     <LinearLayout
         android:id="@+id/min_15"
@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:text="@string/min_15"
             android:textSize="15sp"
-            android:textColor="@color/black"
+            android:textColor="?colorOnPrimary"
             android:padding="8dp"/>
     </LinearLayout>
 
@@ -45,7 +45,7 @@
             android:layout_height="match_parent"
             android:text="@string/min_30"
             android:textSize="15sp"
-            android:textColor="@color/black"
+            android:textColor="?colorOnPrimary"
             android:padding="8dp"/>
     </LinearLayout>
 
@@ -61,7 +61,7 @@
             android:layout_height="match_parent"
             android:text="@string/min_60"
             android:textSize="15sp"
-            android:textColor="@color/black"
+            android:textColor="?colorOnPrimary"
             android:padding="8dp"/>
     </LinearLayout>
 

@@ -6,13 +6,15 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="blacktheme">#2B2B2B</color>
+    <color name="darkgray">#3C3F41</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightgrey">#CCCCCCCC</color>
     <color name="lightgray">#808080</color>
-    <color name="darkgray">#404040</color>
 <!--    custom colors-->
     <color name="cool_blue">#4499E7</color>
     <color name="cool_green">#12a822</color>
     <color name="cool_pink">#F50057</color>
     <color name="yellow">#FFD600</color>
+    <color name="holo_red_dark">#CC0000</color>
 </resources>

@@ -30,11 +30,12 @@
                 android:contentDescription="@string/back_btn"
                 android:padding="10dp"
                 android:src="@drawable/back_icon"
+                android:backgroundTint="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5"
-                app:tint="@color/black" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,7 +47,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:gravity="center"
                 android:text="Now Playing"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textIsSelectable="true"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -65,7 +66,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5"
-                app:tint="@color/black" />
+                app:tint="@color/white" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
@@ -103,7 +104,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"
                 android:padding="15dp"
-                android:src="@drawable/music_player_icon_slash_screen"
+                android:src="@mipmap/logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -127,7 +128,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="@string/song_name"
-                android:textColor="?colorPrimary"
+                android:textColor="@color/black"
                 android:textIsSelectable="true"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -155,7 +156,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/previous_icon"
                 app:iconSize="30dp"
-                app:tint="?colorPrimary"
+                app:tint="?colorSecondary"
                 android:background="@android:color/transparent"/>
 
             <!--        Play & Pause Button-->
@@ -166,6 +167,7 @@
                 android:layout_marginHorizontal="25dp"
                 app:icon="@drawable/pause_icon"
                 app:iconSize="40dp"
+                app:iconTint="@color/white"
                 android:backgroundTint="?themeColor"
                 app:shapeAppearanceOverlay="@style/circle" />
 
@@ -176,7 +178,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/next_icon"
                 app:iconSize="30dp"
-                app:tint="?colorPrimary"
+                app:tint="?colorSecondary"
                 android:background="@android:color/transparent"/>
 
         </LinearLayout>
@@ -195,7 +197,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/start_tv"
-                android:textColor="?colorPrimary"
+                android:textColor="?colorSecondary"
                 android:textSize="15sp" />
 
             <androidx.appcompat.widget.AppCompatSeekBar
@@ -212,7 +214,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/end_tv"
-                android:textColor="?colorPrimary"
+                android:textColor="?colorSecondary"
                 android:textSize="15sp" />
 
         </LinearLayout>
@@ -233,7 +235,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/repeat_btn"
                 android:src="@drawable/repeat_icon"
-                app:tint="@color/black"
+                app:tint="@color/white"
                 tools:ignore="NestedWeights"
                />
 
@@ -247,7 +249,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/timer_btn"
                 android:src="@drawable/timer_icon"
-                app:tint="@color/black" />
+                app:tint="@color/white" />
 
             <!--        Share Button-->
             <ImageButton
@@ -258,7 +260,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/share_btn"
                 android:src="@drawable/share_icon"
-                app:tint="@color/black" />
+                app:tint="@color/white" />
 
             <ImageButton
                 android:id="@+id/favouriteBtnPA"

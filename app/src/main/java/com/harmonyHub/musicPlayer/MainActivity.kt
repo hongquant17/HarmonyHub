@@ -35,11 +35,9 @@ class MainActivity : AppCompatActivity() {
         lateinit var musicListSearch : ArrayList<Music>
         var search: Boolean = false
         var themeIndex: Int = 0
-        val currentTheme = arrayOf(R.style.coolPink, R.style.coolBlue, R.style.coolPurple, R.style.coolGreen, R.style.coolBlack)
-        val currentThemeNav = arrayOf(R.style.coolPinkNav, R.style.coolBlueNav, R.style.coolPurpleNav, R.style.coolGreenNav,
-            R.style.coolBlackNav)
-        val currentGradient = arrayOf(R.drawable.gradient_pink, R.drawable.gradient_blue, R.drawable.gradient_purple, R.drawable.gradient_green,
-        R.drawable.gradient_black)
+        val currentTheme = arrayOf(R.style.coolBlue, R.style.coolBlack)
+        val currentThemeNav = arrayOf(R.style.coolBlueNav, R.style.coolBlackNav)
+        val currentGradient = arrayOf(R.drawable.gradient_blue, R.drawable.gradient_black)
         var sortOrder: Int = 0
         val sortingList = arrayOf(MediaStore.Audio.Media.DATE_ADDED + " DESC", MediaStore.Audio.Media.TITLE,
         MediaStore.Audio.Media.SIZE + " DESC")
@@ -59,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //checking for dark theme
-        if(themeIndex == 4 &&  resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_NO)
+        if(themeIndex == 1 &&  resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_NO)
             Toast.makeText(this, "Black Theme Works Best in Dark Mode!!", Toast.LENGTH_LONG).show()
 
         if(requestRuntimePermission()){

@@ -15,7 +15,7 @@
         android:layout_gravity="clip_horizontal|center_vertical"
         android:layout_marginVertical="0dp"
         android:layout_marginStart="30dp"
-        android:src="@mipmap/music_player_icon"
+        android:src="@mipmap/logo"
         app:shapeAppearanceOverlay="@style/curved" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:gravity="center_vertical"
         android:singleLine="true"
         android:text="@string/song_name"
-        android:textColor="#191D21"
+        android:textColor="?colorOnPrimary"
         android:textSize="16sp"
         android:textStyle="bold" />
 

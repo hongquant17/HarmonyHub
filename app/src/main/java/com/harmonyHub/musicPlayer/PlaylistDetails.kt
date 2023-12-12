@@ -32,12 +32,12 @@ class PlaylistDetails : AppCompatActivity() {
         adapter = MusicAdapter(this, PlaylistActivity.musicPlaylist.ref[currentPlaylistPos].playlist, playlistDetails = true)
         binding.playlistDetailsRV.adapter = adapter
         binding.backBtnPD.setOnClickListener { finish() }
-//        binding.shuffleBtnPD.setOnClickListener {
-//            val intent = Intent(this, PlayerActivity::class.java)
-//            intent.putExtra("index", 0)
-//            intent.putExtra("class", "PlaylistDetailsShuffle")
-//            startActivity(intent)
-//        }
+        binding.shuffleBtnPD.setOnClickListener {
+            val intent = Intent(this, PlayerActivity::class.java)
+            intent.putExtra("index", 0)
+            intent.putExtra("class", "PlaylistDetailsShuffle")
+            startActivity(intent)
+        }
         binding.addBtnPD.setOnClickListener {
             startActivity(Intent(this, SelectionActivity::class.java))
         }
@@ -72,7 +72,7 @@ class PlaylistDetails : AppCompatActivity() {
 //        {
 //            Glide.with(this)
 //                .load(PlaylistActivity.musicPlaylist.ref[currentPlaylistPos].playlist[0].artUri)
-//                .apply(RequestOptions().placeholder(R.drawable.music_player_icon_slash_screen).centerCrop())
+//                .apply(RequestOptions().placeholder(R.mipmap.logo).centerCrop())
 //                .into(binding.playlistImgPD)
 //            binding.shuffleBtnPD.visibility = View.VISIBLE
 //        }
