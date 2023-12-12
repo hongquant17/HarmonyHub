@@ -21,10 +21,13 @@ class SettingsActivity : AppCompatActivity() {
         binding.coolBlackTheme.setOnClickListener { saveTheme(1) }
         when(MainActivity.themeIndex) {
             0 -> {
-                binding.textViewBlue.setTextColor(Color.BLACK)
                 binding.textViewBlue.setTypeface(null, Typeface.BOLD)
+                binding.textViewBlue.setText("Blue theme (current theme)")
             }
-            1 -> binding.textViewBlack.setTextColor(Color.BLACK)
+            1 -> {
+                binding.textViewBlack.setTypeface(null, Typeface.BOLD)
+                binding.textViewBlack.setText("Black theme (current theme)")
+            }
         }
 //        binding.versionName.text = setVersionDetails()
 //        binding.sortBtn.setOnClickListener {

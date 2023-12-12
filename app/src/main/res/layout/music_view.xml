@@ -30,7 +30,7 @@
         android:gravity="center_vertical"
         android:singleLine="true"
         android:text="@string/song_name"
-        android:textColor="#191D21"
+        android:textColor="?colorOnPrimary"
         android:textSize="16sp"
         android:textStyle="bold" />
 

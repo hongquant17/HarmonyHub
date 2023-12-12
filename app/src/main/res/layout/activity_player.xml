@@ -128,7 +128,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="@string/song_name"
-                android:textColor="?colorPrimary"
+                android:textColor="@color/black"
                 android:textIsSelectable="true"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -156,7 +156,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/previous_icon"
                 app:iconSize="30dp"
-                app:tint="?colorPrimary"
+                app:tint="?colorSecondary"
                 android:background="@android:color/transparent"/>
 
             <!--        Play & Pause Button-->
@@ -167,7 +167,7 @@
                 android:layout_marginHorizontal="25dp"
                 app:icon="@drawable/pause_icon"
                 app:iconSize="40dp"
-                app:iconTint="?colorOnPrimary"
+                app:iconTint="@color/white"
                 android:backgroundTint="?themeColor"
                 app:shapeAppearanceOverlay="@style/circle" />
 
@@ -178,7 +178,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/next_icon"
                 app:iconSize="30dp"
-                app:tint="?colorPrimary"
+                app:tint="?colorSecondary"
                 android:background="@android:color/transparent"/>
 
         </LinearLayout>
@@ -197,7 +197,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/start_tv"
-                android:textColor="?colorPrimary"
+                android:textColor="?colorSecondary"
                 android:textSize="15sp" />
 
             <androidx.appcompat.widget.AppCompatSeekBar
@@ -214,7 +214,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/end_tv"
-                android:textColor="?colorPrimary"
+                android:textColor="?colorSecondary"
                 android:textSize="15sp" />
 
         </LinearLayout>

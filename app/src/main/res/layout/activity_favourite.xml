@@ -84,7 +84,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="330dp"
+        android:layout_height="300dp"
         android:background="@drawable/favourite_header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -174,7 +174,7 @@
             app:layout_constraintHeight_percent="0.55"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/headerButton"
-            app:layout_constraintVertical_bias="0.06999999"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent="1"
             tools:ignore="MissingConstraints" />
 
@@ -227,10 +227,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.57"
+        app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintVertical_bias="0.61">
+        android:backgroundTint="@android:color/transparent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/favouriteRV"
@@ -240,8 +240,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!--    <androidx.recyclerview.widget.RecyclerView-->
         <!--        android:id="@+id/favouriteRV"-->
@@ -254,7 +253,6 @@
         <!--        android:scrollbars="vertical"-->
         <!--        android:paddingBottom="40dp"-->
         <!--        android:layout_marginTop="10dp"/>-->
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

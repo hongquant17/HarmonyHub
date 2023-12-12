@@ -225,7 +225,11 @@ class PlayerActivity : AppCompatActivity(), ServiceConnection, MediaPlayer.OnCom
 //        val gradient = GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(0xFFFFFF, bgColor))
 //        binding.root.background = gradient
 //        window?.statusBarColor = bgColor
-        val themeColor = ContextCompat.getColor(this, R.color.cool_blue)
+        val themeColor = if (MainActivity.themeIndex == 0) {
+            ContextCompat.getColor(this, R.color.cool_blue)
+        } else {
+            ContextCompat.getColor(this,R.color.blacktheme)
+        }
         val gradient = GradientDrawable(
             GradientDrawable.Orientation.BOTTOM_TOP,
             intArrayOf(0xFFFFFF, themeColor)

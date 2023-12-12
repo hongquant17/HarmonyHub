@@ -21,10 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_margin="5dp"
-            android:backgroundTint="#FFFFFF"
+            android:backgroundTint="@android:color/transparent"
             android:contentDescription="@string/back_btn"
             android:src="@drawable/back_icon"
-            app:tint="@color/black" />
+            app:tint="?colorOnPrimary" />
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchViewSA"
