@@ -246,6 +246,25 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.search_view_menu, menu)
         //for setting gradient
         findViewById<LinearLayout>(R.id.linearLayoutNav)?.setBackgroundResource(currentGradient[themeIndex])
+        val sortItem = menu?.findItem(R.id.sortBtn)
+        sortItem?.setOnMenuItemClickListener {
+            val menuList = arrayOf("Recently Added", "Song Title", "File Size")
+            var currentSort = sortOrder
+            val builder = MaterialAlertDialogBuilder(this)
+            builder.setTitle("Sorting")
+                .setPositiveButton("OK"){ _, _ ->
+                    val editor = getSharedPreferences("SORTING", MODE_PRIVATE).edit()
+                    editor.putInt("sortOrder", currentSort)
+                    editor.apply()
+                }
+                .setSingleChoiceItems(menuList, currentSort){ _,which->
+                    currentSort = which
+                }
+            val customDialog = builder.create()
+            customDialog.show()
+            setDialogBtnBackground(this, customDialog)
+            true
+        }
         val searchView = menu?.findItem(R.id.searchView)?.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean = true
