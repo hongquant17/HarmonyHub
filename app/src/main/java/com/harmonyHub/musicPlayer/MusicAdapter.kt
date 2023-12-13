@@ -108,9 +108,13 @@ private val selectionActivity: Boolean = false)
                 holder.root.setOnClickListener {
                     if(addSong(musicList[position]))
                         holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.cool_blue))
-                    else
-                        holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
-
+                    else {
+                        if (MainActivity.themeIndex == 0) {
+                            holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
+                        } else {
+                            holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.blacktheme))
+                        }
+                    }
                 }
             }
             else ->{

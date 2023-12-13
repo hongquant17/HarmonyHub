@@ -165,10 +165,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="25dp"
-                app:icon="@drawable/pause_icon"
-                app:iconSize="40dp"
-                app:iconTint="@color/white"
                 android:backgroundTint="?themeColor"
+                app:collapsedSize="50dp"
+                app:icon="@drawable/pause_icon"
+                app:iconSize="45dp"
+                app:iconTint="@color/white"
                 app:shapeAppearanceOverlay="@style/circle" />
 
             <!--        Next Button-->
@@ -205,8 +206,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:thumbTint="@color/darkgray"
-                tools:ignore="NestedWeights" />
+                android:thumbTint="@color/darkgray"/>
 
             <TextView
                 android:id="@+id/tvSeekBarEnd"
