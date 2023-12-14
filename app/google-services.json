@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "591227716532",
+    "firebase_url": "https://harmony-hub-2-default-rtdb.firebaseio.com",
+    "project_id": "harmony-hub-2",
+    "storage_bucket": "harmony-hub-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591227716532:android:38a53627976e7ef60728e1",
+        "android_client_info": {
+          "package_name": "com.harmonyHub.musicPlayer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx4gY1MhYbLwkLlf2ggZeWvJGGSILYUbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

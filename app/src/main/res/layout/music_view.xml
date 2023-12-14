@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:padding="0dp"
+    android:layout_marginBottom="0dp"
+    >
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageMV"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="clip_horizontal|center_vertical"
+        android:layout_marginVertical="0dp"
+        android:layout_marginStart="30dp"
+        android:src="@mipmap/logo"
+        app:shapeAppearanceOverlay="@style/curved" />
+
+    <TextView
+        android:id="@+id/songNameMV"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="5dp"
+        android:layout_toStartOf="@id/songDuration"
+        android:layout_toEndOf="@id/imageMV"
+        android:fontFamily="@font/nunito_sans_semibold"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="@string/song_name"
+        android:textColor="?colorOnPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/songArtistMV"
+        android:layout_width="170dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="35dp"
+        android:layout_toStartOf="@id/songDuration"
+        android:layout_toEndOf="@id/imageMV"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="@string/song_artist"
+        android:textColor="#ACB8C2" />
+
+    <TextView
+        android:id="@+id/songDuration"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center|end"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center"
+        android:text="@string/start_tv"
+        android:textColor="#ACB8C2" />
+
+
+</com.google.android.material.card.MaterialCardView>

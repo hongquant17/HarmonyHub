@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorPrimary"
+    tools:context=".SettingsActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/set_theme"
+            android:textColor="?colorOnPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+            <!--        <com.google.android.material.imageview.ShapeableImageView-->
+            <!--            android:id="@+id/coolPinkTheme"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--            android:layout_weight="1"-->
+            <!--            android:src="@drawable/circle_icon"-->
+            <!--            android:tint="@color/cool_pink"/>-->
+
+            <LinearLayout
+                android:id="@+id/coolBlueTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/circle_icon"
+                    android:tint="@color/cool_blue" />
+
+                <TextView
+                    android:id="@+id/textViewBlue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Blue theme"
+                    android:textColor="?colorOnPrimary"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/coolBlackTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/circle_icon"
+                    android:tint="@color/black" />
+
+                <TextView
+                    android:id="@+id/textViewBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="Black theme"
+                    android:textColor="?colorOnPrimary"/>
+
+            </LinearLayout>
+
+            <!--        <com.google.android.material.imageview.ShapeableImageView-->
+            <!--            android:id="@+id/coolPurpleTheme"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--            android:layout_weight="1"-->
+            <!--            android:src="@drawable/circle_icon"-->
+            <!--            android:tint="@color/purple_500"/>-->
+            <!--        <com.google.android.material.imageview.ShapeableImageView-->
+            <!--            android:id="@+id/coolGreenTheme"-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--            android:layout_weight="1"-->
+            <!--            android:src="@drawable/circle_icon"-->
+            <!--            android:tint="@color/cool_green"/>-->
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1">
+    </LinearLayout>
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/versionName"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+
+    <!--        android:layout_marginBottom="1dp"-->
+    <!--        android:background="@color/white"-->
+    <!--        android:padding="16dp"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="18sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />-->
+    <!--    &lt;!&ndash;    android:text="@string/version_name"&ndash;&gt;-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

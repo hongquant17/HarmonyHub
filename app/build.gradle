@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.harmonyHub.musicPlayer"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 9
+        versionName "4.0.5"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    //for viewBinding
+    buildFeatures{
+        viewBinding = true
+    }
+    namespace 'com.harmonyHub.musicPlayer'
+}
+
+dependencies {
+
+    //noinspection GradleDependency
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //Glide for image loading
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    implementation 'com.google.firebase:firebase-auth:22.2.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.9.1'
+    implementation 'com.google.firebase:firebase-firestore:24.9.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    //for Notification
+    implementation 'androidx.media:media:1.6.0'
+    //for storing objects in shared preferences
+    implementation 'com.google.code.gson:gson:2.10'
+    //for sending mail
+//    implementation 'com.sun.mail:android-mail:1.6.2'
+//    implementation 'com.sun.mail:android-activation:1.6.2'
+
+    //for circular seekbar --> volume controls
+    implementation 'com.github.lukelorusso:VerticalSeekBar:1.2.7'
+    implementation 'com.github.jeancsanchez:JcPlayer:2.6.16'
+    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation "com.airbnb.android:lottie:5.2.0"
+
+}
