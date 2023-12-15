@@ -242,6 +242,7 @@ class MainActivity : AppCompatActivity() {
         if(PlayerActivity.musicService != null) binding.nowPlaying.visibility = View.VISIBLE
     }
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_view_menu, menu)
         //for setting gradient
@@ -256,6 +257,7 @@ class MainActivity : AppCompatActivity() {
                     val editor = getSharedPreferences("SORTING", MODE_PRIVATE).edit()
                     editor.putInt("sortOrder", currentSort)
                     editor.apply()
+                    initializeLayout()
                 }
                 .setSingleChoiceItems(menuList, currentSort){ _,which->
                     currentSort = which
