@@ -1,5 +1,6 @@
 package com.harmonyHub.musicPlayer
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView.OnItemClickListener
@@ -26,6 +27,23 @@ class OnlineMusic : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_online_music)
 
+        initializeViews()
+        retrieveSongs()
+
+        listView.onItemClickListener = OnItemClickListener { _, _, position, _ ->
+            jcPlayerView.visibility = View.VISIBLE
+            jcPlayerView.createNotification()
+            adapter.notifyDataSetChanged()
+            val selectedSong = position
+            val intent = Intent(this, OnlinePlaying::class.java)
+            intent.putExtra("songId", selectedSong)
+            intent.putExtra("thumbnail", ArrayList(thumbnail))
+            intent.putParcelableArrayListExtra("jcAudios", ArrayList(jcAudios))
+            startActivity(intent)
+        }
+    }
+
+    private fun initializeViews() {
         listView = findViewById(R.id.songsList)
         songsNameList = mutableListOf()
         songsUrlList = mutableListOf()
@@ -34,48 +52,44 @@ class OnlineMusic : AppCompatActivity() {
         jcAudios = mutableListOf()
         thumbnail = mutableListOf()
         jcPlayerView = findViewById(R.id.jcplayer)
-
-        retrieveSongs()
-
-        listView.onItemClickListener = OnItemClickListener { adapterView, view, i, l ->
-            jcPlayerView.playAudio(jcAudios[i])
-            jcPlayerView.visibility = View.VISIBLE
-            jcPlayerView.createNotification()
-            adapter.notifyDataSetChanged()
-        }
     }
 
-    // RETRIEVING THE SONGS FROM THE SERVER
     private fun retrieveSongs() {
         val firestore = FirebaseFirestore.getInstance()
         firestore.collection("Songs")
             .get()
-            .addOnSuccessListener { querySnapshot ->
-                for (document in querySnapshot) {
-                    val song = document.toObject(Song::class.java)
-                    songsNameList.add(song.songName)
-                    songsUrlList.add(song.songUrl)
-                    songsArtistList.add(song.songArtist)
-                    songsDurationList.add(song.songDuration)
-                    thumbnail.add(song.imageUrl)
-                    jcAudios.add(JcAudio.createFromURL(song.songName.toString(),
-                        song.songUrl.toString()
-                    ))
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val querySnapshot = task.result
+                    for (document in querySnapshot) {
+                        val songName = document.getString("songName")
+                        val songUrl = document.getString("songUrl")
+                        val songArtist = document.getString("songArtist")
+                        val songDuration = document.getString("songDuration")
+                        val imageUrl = document.getString("imageUrl")
+
+                        songsNameList.add(songName)
+                        songsUrlList.add(songUrl)
+                        songsArtistList.add(songArtist)
+                        songsDurationList.add(songDuration)
+                        thumbnail.add(imageUrl)
+                        jcAudios.add(JcAudio.createFromURL(songName.toString(), songUrl.toString()))
+                    }
+
+                    adapter = ListAdapter(
+                        applicationContext,
+                        songsNameList,
+                        thumbnail,
+                        songsArtistList,
+                        songsDurationList
+                    )
+
+                    jcPlayerView.initPlaylist(jcAudios, null)
+                    listView.adapter = adapter
+                    adapter.notifyDataSetChanged()
+                } else {
+                    Toast.makeText(this@OnlineMusic, "FAILED!", Toast.LENGTH_SHORT).show()
                 }
-                adapter = ListAdapter(
-                    applicationContext,
-                    songsNameList,
-                    thumbnail,
-                    songsArtistList,
-                    songsDurationList
-                )
-                jcPlayerView.initPlaylist(jcAudios, null)
-                listView.adapter = adapter
-                adapter.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                Toast.makeText(this@OnlineMusic, "FAILED!", Toast.LENGTH_SHORT).show()
             }
     }
-
 }
