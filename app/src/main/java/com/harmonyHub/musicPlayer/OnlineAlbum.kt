@@ -1,21 +1,18 @@
 package com.harmonyHub.musicPlayer
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.jean.jcplayer.model.JcAudio
 import com.example.jean.jcplayer.view.JcPlayerView
 import com.google.firebase.firestore.FirebaseFirestore
 
-class OnlineMusic : AppCompatActivity() {
-
+class OnlineAlbum : AppCompatActivity() {
     private lateinit var listView: ListView
-    private lateinit var albumView: ListView
     private lateinit var songsNameList: MutableList<String?>
     private lateinit var songsUrlList: MutableList<String?>
     private lateinit var songsArtistList: MutableList<String?>
@@ -24,41 +21,33 @@ class OnlineMusic : AppCompatActivity() {
     private lateinit var jcPlayerView: JcPlayerView
     private lateinit var jcAudios: MutableList<JcAudio>
     private lateinit var thumbnail: MutableList<String?>
-    private lateinit var albumList: MutableList<Album>
-    private lateinit var albumAdapter: AlbumAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_online_music)
-
-        initializeViews()
-        retrieveSongs()
-        retrieveAlbums()
-
-        listView.onItemClickListener = OnItemClickListener { _, _, position, _ ->
-            jcPlayerView.visibility = View.VISIBLE
-            jcPlayerView.createNotification()
-            adapter.notifyDataSetChanged()
-            val selectedSong = position
-            val intent = Intent(this, OnlinePlaying::class.java)
-            intent.putExtra("songId", selectedSong)
-            intent.putExtra("thumbnail", ArrayList(thumbnail))
-            intent.putParcelableArrayListExtra("jcAudios", ArrayList(jcAudios))
-            startActivity(intent)
+        setContentView(R.layout.activity_online_album)
+        val albumId = intent.getStringExtra("albumId")
+        if (albumId != null) {
+            initializeViews()
+            retrieveSongs(albumId)
+            listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+                jcPlayerView.visibility = View.VISIBLE
+                jcPlayerView.createNotification()
+                adapter.notifyDataSetChanged()
+                val selectedSong = position
+                val intent = Intent(this, OnlinePlaying::class.java)
+                intent.putExtra("songId", selectedSong)
+                intent.putExtra("thumbnail", ArrayList(thumbnail))
+                intent.putParcelableArrayListExtra("jcAudios", ArrayList(jcAudios))
+                startActivity(intent)
+            }
+        } else {
+            Toast.makeText(this, "No album selected", Toast.LENGTH_SHORT).show()
         }
 
-        albumView.onItemClickListener = OnItemClickListener { _, _, position, _ ->
-            albumAdapter.notifyDataSetChanged()
-            val selectedAlbum = (position +1).toString()
-            val intent = Intent(this, OnlineAlbum::class.java)
-            intent.putExtra("albumId", selectedAlbum)
-            startActivity(intent)
-        }
     }
 
     private fun initializeViews() {
         listView = findViewById(R.id.songsList)
-        albumView = findViewById(R.id.albumList)
         songsNameList = mutableListOf()
         songsUrlList = mutableListOf()
         songsArtistList = mutableListOf()
@@ -66,15 +55,12 @@ class OnlineMusic : AppCompatActivity() {
         jcAudios = mutableListOf()
         thumbnail = mutableListOf()
         jcPlayerView = findViewById(R.id.jcplayer)
-        albumList = mutableListOf()
-        albumAdapter = AlbumAdapter(this, albumList)
-        val albumListView = findViewById<ListView>(R.id.albumList)
-        albumListView.adapter = albumAdapter
     }
 
-    private fun retrieveSongs() {
+    private fun retrieveSongs(albumId: String) {
         val firestore = FirebaseFirestore.getInstance()
         firestore.collection("Songs")
+            .whereEqualTo("albumId", albumId)
             .get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -106,27 +92,7 @@ class OnlineMusic : AppCompatActivity() {
                     listView.adapter = adapter
                     adapter.notifyDataSetChanged()
                 } else {
-                    Toast.makeText(this@OnlineMusic, "FAILED!", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-
-    private fun retrieveAlbums() {
-        val firestore = FirebaseFirestore.getInstance()
-        firestore.collection("albums")
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val querySnapshot = task.result
-                    for (document in querySnapshot) {
-                        val albumTitle = document.getString("title")
-                        val albumCoverImageUrl = document.getString("CoverImageUrl")
-                        val album = Album(albumTitle, albumCoverImageUrl)
-                        albumList.add(album)
-                    }
-                    albumAdapter.notifyDataSetChanged()
-                } else {
-                    Toast.makeText(this, "Failed to retrieve albums", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@OnlineAlbum, "FAILED!", Toast.LENGTH_SHORT).show()
                 }
             }
     }
