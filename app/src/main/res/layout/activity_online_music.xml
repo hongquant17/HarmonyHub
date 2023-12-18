@@ -122,7 +122,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ListView
-                    android:id="@+id/albumList"
+                    android:id="@+id/topListView"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scrollbars="none"
@@ -131,7 +131,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintWidth_percent="0.91"
-                    app:layout_constraintHeight_percent="0.8"
+                    app:layout_constraintHeight_percent="0.35"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/playlists" />
 
@@ -196,14 +196,19 @@
 <!--                    app:layout_constraintWidth_percent="0.91" />-->
 
                 <ListView
-                    android:id="@+id/songsList"
+                    android:id="@+id/bottomListView"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="#EFF4F4"
+                    android:scrollbars="none"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.35"
+                    app:layout_constraintHorizontal_bias="0.432"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/favourites" />
+                    app:layout_constraintTop_toBottomOf="@id/favourites"
+                    app:layout_constraintVertical_bias="0.171"
+                    app:layout_constraintWidth_percent="0.91" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.example.jean.jcplayer.view.JcPlayerView
