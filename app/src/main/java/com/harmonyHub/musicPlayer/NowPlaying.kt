@@ -27,6 +27,18 @@ class NowPlaying : Fragment() {
         binding.playPauseBtnNP.setOnClickListener {
             if(PlayerActivity.isPlaying) pauseMusic() else playMusic()
         }
+        binding.previousBtnNP.setOnClickListener {
+            setSongPosition(increment = false)
+            PlayerActivity.musicService!!.createMediaPlayer()
+            Glide.with(requireContext())
+                .load(PlayerActivity.musicListPA[PlayerActivity.songPosition].artUri)
+                .apply(RequestOptions().placeholder(R.mipmap.logo).centerCrop())
+                .into(binding.songImgNP)
+            binding.songNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].title
+            binding.artistNameNP.text = PlayerActivity.musicListPA[PlayerActivity.songPosition].artist
+            PlayerActivity.musicService!!.showNotification(R.drawable.pause_icon)
+            playMusic()
+        }
         binding.nextBtnNP.setOnClickListener {
             setSongPosition(increment = true)
             PlayerActivity.musicService!!.createMediaPlayer()
