@@ -2,10 +2,11 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="250dp"
-android:layout_height="250dp"
-android:padding="5dp"
+android:layout_width="230dp"
+android:layout_height="230dp"
+android:padding="0dp"
 app:cardCornerRadius="30dp"
+    android:layout_marginBottom="0dp"
     >
 
 <com.google.android.material.imageview.ShapeableImageView
@@ -15,20 +16,6 @@ app:cardCornerRadius="30dp"
     android:layout_gravity="start"
     app:shapeAppearanceOverlay="@style/newfeed_img_curved" />
 
-<!--    android:src="@mipmap/music_player_icon"-->
-
-
-    <!--<TextView-->
-<!--    android:id="@+id/description"-->
-<!--    android:layout_width="wrap_content"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:layout_marginLeft="20dp"-->
-<!--    android:layout_marginTop="190dp"-->
-<!--    android:fontFamily="@font/poppins_light"-->
-<!--    android:singleLine="true"-->
-<!--    android:textColor="#ACB8C2"-->
-<!--    android:textSize="10sp"-->
-<!--    android:text="description" />-->
 
     <TextView
         android:id="@+id/albumTitle"
