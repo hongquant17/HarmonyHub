@@ -21,6 +21,12 @@
         android:theme="@style/splash_screen"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".OnlineAlbum"
+            android:exported="false" />
+        <activity
+            android:name=".OnlinePlaying"
+            android:exported="false" />
+        <activity
             android:name=".OnlineMusic"
             android:exported="false" />
         <activity

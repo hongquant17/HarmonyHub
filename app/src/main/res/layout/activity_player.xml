@@ -84,8 +84,8 @@
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="220dp"
-                android:layout_height="220dp"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"
@@ -98,8 +98,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/songImgPA"
-                android:layout_width="220dp"
-                android:layout_height="220dp"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"
@@ -145,7 +145,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -155,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/previous_icon"
-                app:iconSize="30dp"
+                app:iconSize="40dp"
                 app:tint="?colorSecondary"
                 android:background="@android:color/transparent"/>
 
@@ -164,11 +164,10 @@
                 android:id="@+id/playPauseBtnPA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="25dp"
-                android:backgroundTint="?themeColor"
-                app:collapsedSize="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:backgroundTint="@color/black"
                 app:icon="@drawable/pause_icon"
-                app:iconSize="45dp"
+                app:iconSize="50dp"
                 app:iconTint="@color/white"
                 app:shapeAppearanceOverlay="@style/circle" />
 
@@ -178,7 +177,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/next_icon"
-                app:iconSize="30dp"
+                app:iconSize="40dp"
                 app:tint="?colorSecondary"
                 android:background="@android:color/transparent"/>
 
