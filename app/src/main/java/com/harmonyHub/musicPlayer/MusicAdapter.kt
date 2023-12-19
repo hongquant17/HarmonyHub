@@ -58,16 +58,28 @@ private val selectionActivity: Boolean = false)
 
                 bindingMF.AddToPNBtn.setOnClickListener {
                     try {
-                        if(PlayNext.playNextList.isEmpty()){
-                            PlayNext.playNextList.add(PlayerActivity.musicListPA[PlayerActivity.songPosition])
+                        if(FavouriteActivity.favouriteSongs.isEmpty()){
+                            FavouriteActivity.favouriteSongs.add(PlayerActivity.musicListPA[PlayerActivity.songPosition])
                             PlayerActivity.songPosition = 0
                         }
-
-                        PlayNext.playNextList.add(musicList[position])
-                        PlayerActivity.musicListPA = ArrayList()
-                        PlayerActivity.musicListPA.addAll(PlayNext.playNextList)
+                        var favouritesongExists = false
+                        var name = musicList[position].title
+                        for(i in FavouriteActivity.favouriteSongs.iterator()) {
+                            if (name == i.title){
+                                favouritesongExists = true
+                                break
+                            }
+                        }
+                        if(favouritesongExists) {
+                            Snackbar.make(context, holder.root,"Your song already exists in Favorites!!", 2000).show()
+                        } else {
+                            FavouriteActivity.favouriteSongs.add(musicList[position])
+                            PlayerActivity.musicListPA = ArrayList()
+                            PlayerActivity.musicListPA.addAll(FavouriteActivity.favouriteSongs)
+                            Snackbar.make(context, holder.root,"Your song has been added to Favorites!!", 2000).show()
+                        }
                     }catch (e: Exception){
-                        Snackbar.make(context, holder.root,"Play A Song First!!", 3000).show()
+                        Snackbar.make(context, holder.root,"Your first favourite song!!", 2000).show()
                     }
                     dialog.dismiss()
                 }
@@ -108,9 +120,13 @@ private val selectionActivity: Boolean = false)
                 holder.root.setOnClickListener {
                     if(addSong(musicList[position]))
                         holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.cool_blue))
-                    else
-                        holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
-
+                    else {
+                        if (MainActivity.themeIndex == 0) {
+                            holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
+                        } else {
+                            holder.root.setBackgroundColor(ContextCompat.getColor(context, R.color.blacktheme))
+                        }
+                    }
                 }
             }
             else ->{

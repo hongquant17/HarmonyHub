@@ -24,7 +24,7 @@
             android:backgroundTint="@android:color/transparent"
             android:contentDescription="@string/back_btn"
             android:src="@drawable/back_icon"
-            app:tint="?colorOnPrimary" />
+            app:tint="@color/lightgray"/>
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchViewSA"
