@@ -27,6 +27,7 @@ class OnlineAlbum : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(MainActivity.currentTheme[MainActivity.themeIndex])
         setContentView(R.layout.activity_online_album)
         val albumId = intent.getStringExtra("albumId")
         val albumTitle = intent.getStringExtra("albumTitle")

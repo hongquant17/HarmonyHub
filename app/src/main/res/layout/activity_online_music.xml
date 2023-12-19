@@ -17,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#EFF4F4"
+            android:background="@android:color/transparent"
             >
 
 <!--            Title-->
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Let's harmony"
-                    android:textColor="#191D21"
+                    android:textColor="?colorOnPrimary"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -90,15 +90,15 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_percent="0.91"
                     app:queryHint="@string/search_song"
-                    app:searchIcon="@drawable/search" />
+                    app:searchIcon="@drawable/search"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 <!--            Playlist-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/nf_playlists"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_width="403dp"
+                android:layout_height="254dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_percent="0.3"
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Hot playlists"
-                    android:textColor="#000000"
+                    android:textColor="?colorOnPrimary"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -124,36 +124,37 @@
                 <ListView
                     android:id="@+id/topListView"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="200dp"
+                    android:background="@android:color/transparent"
                     android:scrollbars="none"
-                    android:background="#EFF4F4"
+                    android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintWidth_percent="0.91"
                     app:layout_constraintHeight_percent="0.35"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/playlists" />
+                    app:layout_constraintTop_toBottomOf="@+id/playlists"
+                    app:layout_constraintWidth_percent="0.91" />
 
 
-<!--                <HorizontalScrollView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="0dp"-->
-<!--                    android:scrollbars="none"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintWidth_percent="0.91"-->
-<!--                    app:layout_constraintHeight_percent="0.8"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/playlists">-->
+                <!--                <HorizontalScrollView-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="0dp"-->
+                <!--                    android:scrollbars="none"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintWidth_percent="0.91"-->
+                <!--                    app:layout_constraintHeight_percent="0.8"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/playlists">-->
 
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:orientation="horizontal">-->
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:orientation="horizontal">-->
 
-<!--                    </LinearLayout>-->
-<!--                </HorizontalScrollView>-->
+                <!--                    </LinearLayout>-->
+                <!--                </HorizontalScrollView>-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -174,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Hot top songs"
-                    android:textColor="#000000"
+                    android:textColor="?colorOnPrimary"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -198,9 +199,9 @@
                 <ListView
                     android:id="@+id/bottomListView"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="#EFF4F4"
-                    android:scrollbars="none"
+                    android:layout_height="200dp"
+                    android:background="@android:color/transparent"
+                    android:scrollbars="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHeight_percent="0.35"

@@ -18,9 +18,9 @@ class OnlinePlaying : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(MainActivity.currentTheme[MainActivity.themeIndex])
         setContentView(R.layout.activity_online_playing)
         supportActionBar?.hide()
-
         jcPlayerView1 = findViewById(R.id.jcplayer1)
         val songId = intent.getIntExtra("songId", -1)
         thumbnail = intent.getStringArrayListExtra("thumbnail") as MutableList<String>

@@ -1,5 +1,4 @@
     package com.harmonyHub.musicPlayer
-
     import android.content.Intent
     import android.os.Bundle
     import android.widget.AdapterView
@@ -27,9 +26,11 @@
         private lateinit var albumAdapterTop: AlbumAdapter
         private lateinit var albumAdapterBottom: AlbumAdapter
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_online_music)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setTheme(MainActivity.currentTheme[MainActivity.themeIndex])
+        setContentView(R.layout.activity_online_music)
 
             initializeViews()
             retrieveAlbums()
