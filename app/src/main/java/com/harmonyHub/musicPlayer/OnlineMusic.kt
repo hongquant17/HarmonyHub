@@ -39,6 +39,7 @@
                 val selectedAlbum = (position + 1).toString()
                 val intent = Intent(this, OnlineAlbum::class.java)
                 intent.putExtra("albumTitle", albumList[position].title)
+                intent.putExtra("albumImg", albumList[position].coverImageUrl)
                 intent.putExtra("albumId", selectedAlbum)
                 startActivity(intent)
             }
@@ -47,6 +48,7 @@
                 val selectedAlbum = (position + 4).toString()
                 val intent = Intent(this, OnlineAlbum::class.java)
                 intent.putExtra("albumTitle", albumList[position+3].title)
+                intent.putExtra("albumImg", albumList[position+3].coverImageUrl)
                 intent.putExtra("albumId", selectedAlbum)
                 startActivity(intent)
             }

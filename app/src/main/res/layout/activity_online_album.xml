@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".OnlineAlbum">
 
+    <ImageView
+        android:id="@+id/albumImg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <TextView
         android:id="@+id/albumTitleTextView"
         android:layout_width="418dp"
@@ -14,9 +26,10 @@
         android:padding="16dp"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/albumImg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+         />
 
     <ListView
         android:id="@+id/songsList"

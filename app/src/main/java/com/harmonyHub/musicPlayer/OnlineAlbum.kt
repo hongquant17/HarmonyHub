@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.jean.jcplayer.model.JcAudio
 import com.example.jean.jcplayer.view.JcPlayerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 
 class OnlineAlbum : AppCompatActivity() {
     private lateinit var listView: ListView
@@ -28,9 +30,12 @@ class OnlineAlbum : AppCompatActivity() {
         setContentView(R.layout.activity_online_album)
         val albumId = intent.getStringExtra("albumId")
         val albumTitle = intent.getStringExtra("albumTitle")
+        val albumImg = intent.getStringExtra("albumImg")
         if (albumId != null) {
             val albumTitleTextView = findViewById<TextView>(R.id.albumTitleTextView)
             albumTitleTextView.text = albumTitle
+            val albumImageView = findViewById<ImageView>(R.id.albumImg)
+            Picasso.get().load(albumImg).into(albumImageView)
             initializeViews()
             retrieveSongs(albumId)
             listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
