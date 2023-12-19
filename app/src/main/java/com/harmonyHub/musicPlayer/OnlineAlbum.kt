@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import com.example.jean.jcplayer.model.JcAudio
 import com.example.jean.jcplayer.view.JcPlayerView
@@ -26,7 +27,10 @@ class OnlineAlbum : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_online_album)
         val albumId = intent.getStringExtra("albumId")
+        val albumTitle = intent.getStringExtra("albumTitle")
         if (albumId != null) {
+            val albumTitleTextView = findViewById<TextView>(R.id.albumTitleTextView)
+            albumTitleTextView.text = albumTitle
             initializeViews()
             retrieveSongs(albumId)
             listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
@@ -55,6 +59,7 @@ class OnlineAlbum : AppCompatActivity() {
         jcAudios = mutableListOf()
         thumbnail = mutableListOf()
         jcPlayerView = findViewById(R.id.jcplayer)
+
     }
 
     private fun retrieveSongs(albumId: String) {
