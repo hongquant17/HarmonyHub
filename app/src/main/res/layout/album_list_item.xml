@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="150dp"
-android:layout_height="180dp"
-android:padding="0dp"
-app:cardCornerRadius="20dp"
-    android:backgroundTint="?colorTertiary">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="180dp"
+    android:layout_height="180dp"
+    android:rotation="90"
+    app:cardCornerRadius="20dp">
 
-<com.google.android.material.imageview.ShapeableImageView
-    android:id="@+id/albumCover"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:layout_gravity="start"
-    app:shapeAppearanceOverlay="@style/newfeed_img_curved" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/albumCover"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center_horizontal"
+        app:shapeAppearanceOverlay="@style/newfeed_img_curved" />
 
 
     <TextView
         android:id="@+id/albumTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="140dp"
         android:fontFamily="@font/nunito_sans_semibold"
+        android:gravity="center"
         android:singleLine="true"
         android:text="playlistTitle"
         android:textColor="?colorOnPrimary"
         android:textSize="17sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
 
 </com.google.android.material.card.MaterialCardView>
