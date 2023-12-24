@@ -3,6 +3,7 @@ package com.harmonyHub.musicPlayer
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jean.jcplayer.model.JcAudio
@@ -12,6 +13,7 @@ import com.squareup.picasso.Picasso
 class OnlinePlaying : AppCompatActivity() {
 
     private lateinit var thumbnail: MutableList<String>
+    private lateinit var lyric: String
     private lateinit var jcPlayerView1: JcPlayerView
     private lateinit var jcAudios: List<JcAudio>
     private var currentSongId: Int = -1
@@ -25,9 +27,11 @@ class OnlinePlaying : AppCompatActivity() {
         val songId = intent.getIntExtra("songId", -1)
         thumbnail = intent.getStringArrayListExtra("thumbnail") as MutableList<String>
         jcAudios = intent.getParcelableArrayListExtra<JcAudio>("jcAudios") ?: emptyList()
+        lyric = intent.getStringExtra("lyric") ?: ""
 
         if (songId != -1) {
             initializeJcPlayerViews(jcAudios, songId, thumbnail)
+            showLyrics(lyric)
         } else {
             Toast.makeText(this, "No song selected", Toast.LENGTH_SHORT).show()
         }
@@ -49,6 +53,11 @@ class OnlinePlaying : AppCompatActivity() {
             jcPlayerView1.createNotification(R.drawable.notimg)
             updateThumbnail(jcAudios[id])
         }
+    }
+
+    private fun showLyrics(lyric: String?) {
+        val lyricTextView: TextView = findViewById(R.id.lyricTextView)
+        lyricTextView.text = lyric ?: ""
     }
 
     private fun updateThumbnail(jcAudio: JcAudio?) {
