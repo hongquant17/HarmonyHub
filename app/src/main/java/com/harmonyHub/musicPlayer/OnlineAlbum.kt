@@ -48,6 +48,7 @@ class OnlineAlbum : AppCompatActivity() {
                 val intent = Intent(this, OnlinePlaying::class.java)
                 intent.putExtra("songId", selectedSong)
                 intent.putExtra("lyric", songLyricList[position])
+                intent.putExtra("duration", songsDurationList[position])
                 intent.putExtra("thumbnail", ArrayList(thumbnail))
                 intent.putParcelableArrayListExtra("jcAudios", ArrayList(jcAudios))
                 startActivity(intent)
