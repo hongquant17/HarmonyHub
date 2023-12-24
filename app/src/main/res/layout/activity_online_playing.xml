@@ -82,7 +82,7 @@
         android:background="@drawable/playerbg"
         android:orientation="vertical">
 
-<!--        image-->
+        <!--        image-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,6 +148,39 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+        <!--        View: to spearate-->
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@color/white"
+            android:layout_marginTop="5dp"/>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comment"
+                android:textColor="@color/black"
+                android:padding="5dp"
+                android:textSize="16sp"/>
+                
+            <ImageButton
+                android:id="@+id/addCommentBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/comment_add_black"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp"/>
+
+
+        </RelativeLayout>
+        
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -188,7 +221,7 @@
 
     </LinearLayout>
 
-<!--    <LinearLayout-->
+    <!--    <LinearLayout-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="300dp"-->
 <!--        android:layout_marginTop="15dp"-->
