@@ -1,30 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- comments_dialog.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/shape_rect02"
+    android:orientation="vertical"
     android:padding="20dp">
-
-    <ImageButton
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/back_icon"
-        android:background="@android:color/transparent"
-        android:padding="0dp"/>
-
-    <TextView
-        android:id="@+id/titleTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:padding="5dp"
-        android:text="Add Comment"
-       android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/design_default_color_primary"/>
 
     <!-- Text input -->
     <com.google.android.material.textfield.TextInputLayout
@@ -43,7 +23,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape_edittext01"
             android:inputType="textMultiLine|textCapSentences"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,4 +38,11 @@
         android:background="@drawable/shape_button01"
         android:textColor="@color/black"/>
 
-</RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dialogCommentsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="visible" />
+
+</LinearLayout>

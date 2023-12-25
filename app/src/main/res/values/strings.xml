@@ -33,7 +33,7 @@
     <string name="user_name">Your Name</string>
     <string name="add_song">Add</string>
     <string name="remove_all">Remove All</string>
-    <string name="search_song">SongSearch Song</string>
+    <string name="search_song">Search Song</string>
     <string name="topic_feedback">Topic i.e. Suggestion, Error, etc.</string>
     <string name="email_feedback">Email Address (Optional)</string>
     <string name="send">Send</string>

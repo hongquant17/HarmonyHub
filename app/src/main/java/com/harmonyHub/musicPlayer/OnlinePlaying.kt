@@ -1,17 +1,22 @@
 package com.harmonyHub.musicPlayer
 
+import CommentAdapter
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.jean.jcplayer.model.JcAudio
 import com.example.jean.jcplayer.view.JcPlayerView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.harmonyHub.musicPlayer.databinding.ActivityOnlinePlayingBinding
-import com.harmonyHub.musicPlayer.databinding.DialogCommentAddBinding
 import com.squareup.picasso.Picasso
 
 class OnlinePlaying : AppCompatActivity() {
@@ -23,6 +28,8 @@ class OnlinePlaying : AppCompatActivity() {
 
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var binding:ActivityOnlinePlayingBinding
+
+    private lateinit var commentAdapter: CommentAdapter
 
     private lateinit var progressDialog: ProgressDialog
 
@@ -45,87 +52,96 @@ class OnlinePlaying : AppCompatActivity() {
         thumbnail = intent.getStringArrayListExtra("thumbnail") as MutableList<String>
         jcAudios = intent.getParcelableArrayListExtra<JcAudio>("jcAudios") ?: emptyList()
 
+        commentAdapter = CommentAdapter()
+        binding.commentsRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.commentsRecyclerView.adapter = commentAdapter
+
         if (songId != -1) {
             initializeJcPlayerViews(jcAudios, songId, thumbnail)
         } else {
             Toast.makeText(this, "No song selected", Toast.LENGTH_SHORT).show()
         }
 
-        // handle click, show add comment dialog
+
         binding.addCommentBtn.setOnClickListener {
             if (firebaseAuth.currentUser == null) {
                 // user not logged in
                 Toast.makeText(this, "You are not logged in", Toast.LENGTH_SHORT).show()
             } else {
-                addCommentDialog()
+                showCommentsDialog()
+                fetchComments()
             }
         }
+
+        binding.backBtnOP.setOnClickListener { finish() }
+
+//        commentAdapter.setOnItemClickListener { position ->
+//            val clickedComment = commentAdapter.getItem(position)
+//            // Handle clicked comment as needed
+//        }
+
+
     }
 
-    private var comment = ""
+    private fun showCommentsDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.comments_dialog, null)
 
-    private fun addCommentDialog() {
-        //inflate/bind view for dialog_comment_add.xml
-        val commentAddBinding = DialogCommentAddBinding.inflate(LayoutInflater.from(this))
+        val commentEditText: EditText = dialogView.findViewById(R.id.commentET)
+        val submitButton: Button = dialogView.findViewById(R.id.submitBtn)
 
-        //set up alert dialog
-        val builder = AlertDialog.Builder(this, R.style.CustomDialog)
-        builder.setView(R.layout.dialog_comment_add)
+        // Set up the RecyclerView in the dialog
+        val dialogRecyclerView: RecyclerView = dialogView.findViewById(R.id.dialogCommentsRecyclerView)
+        dialogRecyclerView.layoutManager = LinearLayoutManager(this)
+        dialogRecyclerView.adapter = commentAdapter
 
-        // create and show alert dialog
-        var alertDialog = builder.create()
+        val builder = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setTitle("Comments")
+
+        val alertDialog = builder.create()
+
+        // Set up the "Submit" button logic
+        submitButton.setOnClickListener {
+            val comment = commentEditText.text.toString()
+            if (comment.isNotEmpty()) {
+                // Call the function to add the comment
+                addComment(comment)
+
+                // If you want to dismiss the dialog after submitting the comment, uncomment the line below
+                alertDialog.dismiss()
+            } else {
+                Toast.makeText(this, "Please enter a comment", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        builder.setPositiveButton("Close") { dialog, _ ->
+            dialog.dismiss()
+        }
+
         alertDialog.show()
-
-        //handle click, dismiss dialog
-        commentAddBinding.backBtn.setOnClickListener{ alertDialog.dismiss() }
-
-        // handle click, add comment
-//        commentAddBinding.submitBtn.setOnClickListener {
-//            comment = commentAddBinding.commentET.text.toString().trim()
-//            //validate data
-//            if (comment.isEmpty()) {
-//                Toast.makeText(this, "Enter comment...", Toast.LENGTH_SHORT).show()
-//            } else {
-//                alertDialog.dismiss()
-////                addComment()
-//            }
-//        }
     }
 
-//    private fun addComment() {
-//        //show progress
-//        progressDialog.apply {
-//            setMessage("Adding Comment")
-//            show()
-//        }
-//
-//        //timestamp
-//        val timestamp = "${System.currentTimeMillis()}"
-//
-//        //set up data to add in db for comment
-//        val hashMap = HashMap<String, Any>()
-//        hashMap["id"] = "$timestamp"
-//        hashMap["songId"] = "$songId"
-//        hashMap["timestamp"] = "$timestamp"
-//        hashMap["comment"] = "$comment"
-//        hashMap["uid"] = "${firebaseAuth.uid}"
-//
-//        // db path to add data
-////        val ref = FirebaseFirestore.getInstance().collection("Songs").document(songId.toString())
-////        ref.collection("Comments").document(timestamp)
-////            .set(hashMap)
-////            .addOnSuccessListener {
-////                progressDialog.dismiss()
-////                Toast.makeText(this, "Comment added", Toast.LENGTH_SHORT).show()
-////            }
-////            .addOnFailureListener { e ->
-////                progressDialog.dismiss()
-////                Toast.makeText(this, "Comment not added  ${e.message}", Toast.LENGTH_SHORT).show()
-////                Log.e("AddComment", "Failed to add comment: ${e.message}", e)
-////            }
-//    }
 
+    private fun addComment(comment: String) {
+        val currentUser = firebaseAuth.currentUser
+        if (currentUser != null) {
+            val newComment = Comment(imageUrl = "", "Harmony Hub", comment, songId = "1")
 
+            FirebaseFirestore.getInstance().collection("Comment")
+                .add(newComment)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Comment added successfully", Toast.LENGTH_SHORT).show()
+                    // Fetch and update comments after adding a new comment
+                    fetchComments()
+                }
+                .addOnFailureListener { exception ->
+                    Log.e("AddComment", "Error adding comment: ${exception.message}", exception)
+                    Toast.makeText(this, "Failed to add comment", Toast.LENGTH_SHORT).show()
+                }
+        } else {
+            Toast.makeText(this, "You are not logged in", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onResume() {
         super.onResume()
@@ -139,9 +155,9 @@ class OnlinePlaying : AppCompatActivity() {
         jcPlayerView1.initPlaylist(jcAudios, null)
         if (id >= 0 && id < jcAudios.size) {
             currentSongId = id
+            updateThumbnail(jcAudios[id])
             jcPlayerView1.playAudio(jcAudios[id])
             jcPlayerView1.createNotification(R.drawable.notimg)
-            updateThumbnail(jcAudios[id])
         }
     }
 
@@ -154,6 +170,38 @@ class OnlinePlaying : AppCompatActivity() {
             }
         }
     }
+
+    private fun fetchComments() {
+        Log.d("FetchComments", "Fetching comments for songId: $currentSongId")
+        FirebaseFirestore.getInstance().collection("Comment")
+            .get()
+            .addOnSuccessListener { result ->
+                Log.d("FetchComments", "Success: ${result.size()} comments fetched")
+                val comments = mutableListOf<Comment>()
+                for (document in result) {
+                    // Retrieve all fields from the document
+                    val fields = document.data
+
+                    // Print all fields
+                    for ((key, value) in fields) {
+                        Log.d("FetchComments", "$key: $value")
+                    }
+
+                    // Assuming you have fields like imageUrl, name, and comment
+                    val imageUrl = document.getString("imageUrl") ?: ""
+                    val name = document.getString("name") ?: ""
+                    val comment = document.getString("comment") ?: ""
+
+                    comments.add(Comment(imageUrl, name, comment))
+                }
+                commentAdapter.setComments(comments)
+            }
+            .addOnFailureListener { exception ->
+                Log.e("FetchComments", "Error fetching comments: ${exception.message}", exception)
+            }
+    }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
