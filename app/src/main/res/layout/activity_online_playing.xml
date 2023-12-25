@@ -147,6 +147,29 @@
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="67dp">
+
+            <TextView
+                android:id="@+id/lyricTextView"
+                android:layout_width="match_parent"
+                android:layout_height="79dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="25dp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="Lyric"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.060000002" />
+        </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -160,24 +183,25 @@
                 android:background="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.48000002"
+                app:layout_constraintVertical_bias="0.181"
                 app:next_icon="@drawable/next_icon"
+
                 app:next_icon_color="@color/black"
-
                 app:pause_icon="@drawable/pause_icon"
+
                 app:play_icon="@drawable/play_icon"
-
                 app:previous_icon="@drawable/previous_icon"
+
                 app:previous_icon_color="@color/black"
-
                 app:random_icon="@drawable/shuffle_icon"
+
                 app:random_icon_color="@color/black"
-
                 app:repeat_icon="@drawable/repeat_icon"
-                app:repeat_icon_color="@color/black"
 
+                app:repeat_icon_color="@color/black"
                 app:seek_bar_color="#A6B9FF"
                 app:text_audio_current_duration_color="@color/black"
                 app:text_audio_duration_color="@color/black"
