@@ -158,12 +158,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp">
+            android:layout_marginHorizontal="120dp">
             
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Comment"
+                android:text="Show Comments"
                 android:textColor="@color/black"
                 android:padding="5dp"
                 android:textSize="16sp"/>
@@ -175,7 +175,7 @@
                 android:background="@android:color/transparent"
                 android:src="@drawable/comment_add_black"
                 android:layout_alignParentEnd="true"
-                android:padding="10dp"/>
+                android:padding="5dp"/>
 
 
         </RelativeLayout>

@@ -2,13 +2,16 @@ package com.harmonyHub.musicPlayer
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jean.jcplayer.model.JcAudio
 import com.example.jean.jcplayer.view.JcPlayerView
 import com.google.firebase.auth.FirebaseAuth
 import com.harmonyHub.musicPlayer.databinding.ActivityOnlinePlayingBinding
+import com.harmonyHub.musicPlayer.databinding.DialogCommentAddBinding
 import com.squareup.picasso.Picasso
 
 class OnlinePlaying : AppCompatActivity() {
@@ -29,7 +32,9 @@ class OnlinePlaying : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnlinePlayingBinding.inflate(layoutInflater)
         setTheme(MainActivity.currentTheme[MainActivity.themeIndex])
-        setContentView(R.layout.activity_online_playing)
+        setContentView(binding.root)
+
+        firebaseAuth = FirebaseAuth.getInstance()
 
         progressDialog = ProgressDialog(this)
         progressDialog.setCanceledOnTouchOutside(false)
@@ -52,29 +57,29 @@ class OnlinePlaying : AppCompatActivity() {
                 // user not logged in
                 Toast.makeText(this, "You are not logged in", Toast.LENGTH_SHORT).show()
             } else {
-                setContentView(R.layout.activity_online_album)
+                addCommentDialog()
             }
         }
     }
 
-//    private var comment = ""
-//
-//    private fun addCommentDialog() {
-//        //inflate/bind view for dialog_comment_add.xml
-//        val commentAddBinding = DialogCommentAddBinding.inflate(LayoutInflater.from(this))
-//
-//        //set up alert dialog
-//        val builder = AlertDialog.Builder(this, R.style.CustomDialog)
-//        builder.setView(R.layout.dialog_comment_add)
-//
-//        // create and show alert dialog
-//        var alertDialog = builder.create()
-//        alertDialog.show()
-//
-//        //handle click, dismiss dialog
-//        commentAddBinding.backBtn.setOnClickListener{ alertDialog.dismiss() }
-//
-//        // handle click, add comment
+    private var comment = ""
+
+    private fun addCommentDialog() {
+        //inflate/bind view for dialog_comment_add.xml
+        val commentAddBinding = DialogCommentAddBinding.inflate(LayoutInflater.from(this))
+
+        //set up alert dialog
+        val builder = AlertDialog.Builder(this, R.style.CustomDialog)
+        builder.setView(R.layout.dialog_comment_add)
+
+        // create and show alert dialog
+        var alertDialog = builder.create()
+        alertDialog.show()
+
+        //handle click, dismiss dialog
+        commentAddBinding.backBtn.setOnClickListener{ alertDialog.dismiss() }
+
+        // handle click, add comment
 //        commentAddBinding.submitBtn.setOnClickListener {
 //            comment = commentAddBinding.commentET.text.toString().trim()
 //            //validate data
@@ -82,11 +87,11 @@ class OnlinePlaying : AppCompatActivity() {
 //                Toast.makeText(this, "Enter comment...", Toast.LENGTH_SHORT).show()
 //            } else {
 //                alertDialog.dismiss()
-//                addComment()
+////                addComment()
 //            }
 //        }
-//    }
-//
+    }
+
 //    private fun addComment() {
 //        //show progress
 //        progressDialog.apply {
