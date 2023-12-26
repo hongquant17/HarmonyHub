@@ -15,7 +15,7 @@ import com.squareup.picasso.Transformation
 
 class ListAdapter(
     private val context: Context,
-    private val songNames: List<String?>?,
+    private val songNames: MutableList<String?>,
     private val thumbnails: List<String?>?,
     private val songArtist: List<String?>?,
     private val songDuration: List<String?>?

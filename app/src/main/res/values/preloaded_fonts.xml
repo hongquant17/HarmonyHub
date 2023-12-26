@@ -4,5 +4,7 @@
         <item>@font/nunito_sans_bold</item>
         <item>@font/nunito_sans_semibold</item>
         <item>@font/poppins_light</item>
+        <item>@font/poppins_medium</item>
+        <item>@font/poppins_semibold</item>
     </array>
 </resources>

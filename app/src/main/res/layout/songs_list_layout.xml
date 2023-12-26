@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/common_google_signin_btn_text_dark_focused"
     android:paddingTop="3dp">
 
     <androidx.cardview.widget.CardView
@@ -19,8 +18,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FA020101"
+            android:layout_height="70dp"
             android:orientation="horizontal"
             android:padding="3dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,16 +40,17 @@
                 app:layout_constraintEnd_toStartOf="@+id/currentlyPlaying"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.makeramen.roundedimageview.RoundedImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/songThumbnail"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:background="@drawable/ic_baseline_library_music_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/curved" />
 
             <ImageView
                 android:id="@+id/currentlyPlaying"
@@ -64,17 +63,34 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible" />
 
+<!--            <ImageButton-->
+<!--                android:id="@+id/addCommentBtn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.5"-->
+<!--                app:layout_constraintHorizontal_bias="0.78"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:src="@drawable/comment_add_black"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:padding="10dp"/>-->
+
             <TextView
                 android:id="@+id/artistName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginEnd="50dp"
                 android:layout_marginRight="50dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/bold"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/nunito_sans_semibold"
+                android:padding="3dp"
                 android:paddingStart="10dp"
+                android:singleLine="true"
                 android:text="artist name"
                 android:textColor="#878383"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -86,23 +102,25 @@
             <TextView
                 android:id="@+id/songName"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
-                android:fontFamily="@font/bold"
+                android:layout_height="30dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="70dp"
+                android:fontFamily="@font/nunito_sans_semibold"
+                android:gravity="center_vertical"
                 android:paddingStart="10dp"
+                android:singleLine="true"
                 android:text="song name"
-                android:textAlignment="gravity"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/currentlyPlaying"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/songThumbnail"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
