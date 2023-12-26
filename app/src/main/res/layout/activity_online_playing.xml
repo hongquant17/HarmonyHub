@@ -74,7 +74,7 @@
     </LinearLayout>
 
 
-<!--    Image, Time-->
+    <!--    Image, Time-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -82,7 +82,7 @@
         android:background="@drawable/playerbg"
         android:orientation="vertical">
 
-<!--        image-->
+        <!--        image-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,6 +146,47 @@
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--        View: to spearate-->
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@color/white"
+            android:layout_marginTop="5dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="120dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Show Comments"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageButton
+                android:id="@+id/addCommentBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:padding="5dp"
+                android:src="@drawable/comment_add_black" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commentsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addCommentBtn"
+                android:layout_marginTop="20dp"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
 
         <ScrollView
             android:layout_width="match_parent"
