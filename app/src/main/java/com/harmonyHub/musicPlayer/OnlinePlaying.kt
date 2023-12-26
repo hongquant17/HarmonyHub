@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -18,13 +19,18 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.harmonyHub.musicPlayer.databinding.ActivityOnlinePlayingBinding
 import com.squareup.picasso.Picasso
+import java.util.*
 
 class OnlinePlaying : AppCompatActivity() {
 
     private lateinit var thumbnail: MutableList<String>
+    private lateinit var lyric: String
+    private var duration: Int = -1
     private lateinit var jcPlayerView1: JcPlayerView
     private lateinit var jcAudios: List<JcAudio>
     private var currentSongId: Int = -1
+    private var currentLyricIndex: Int = 0
+    private var timer: Timer? = null
 
     private lateinit var firebaseAuth : FirebaseAuth
     private lateinit var binding:ActivityOnlinePlayingBinding
@@ -51,6 +57,8 @@ class OnlinePlaying : AppCompatActivity() {
         songId = intent.getIntExtra("songId", -1)
         thumbnail = intent.getStringArrayListExtra("thumbnail") as MutableList<String>
         jcAudios = intent.getParcelableArrayListExtra<JcAudio>("jcAudios") ?: emptyList()
+        lyric = intent.getStringExtra("lyric") ?: ""
+        duration = convertDurationToSeconds(intent.getStringExtra("duration"))
 
         commentAdapter = CommentAdapter()
         binding.commentsRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -58,6 +66,7 @@ class OnlinePlaying : AppCompatActivity() {
 
         if (songId != -1) {
             initializeJcPlayerViews(jcAudios, songId, thumbnail)
+            startLyricScrolling()
         } else {
             Toast.makeText(this, "No song selected", Toast.LENGTH_SHORT).show()
         }
@@ -143,6 +152,11 @@ class OnlinePlaying : AppCompatActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        stopLyricScrolling()
+    }
+
     override fun onResume() {
         super.onResume()
         if (jcPlayerView1.currentAudio?.position != currentSongId) {
@@ -159,6 +173,35 @@ class OnlinePlaying : AppCompatActivity() {
             jcPlayerView1.playAudio(jcAudios[id])
             jcPlayerView1.createNotification(R.drawable.notimg)
         }
+    }
+
+    private fun startLyricScrolling() {
+        val lyricTextView: TextView = findViewById(R.id.lyricTextView)
+        val lyrics = processLyrics(lyric)
+        currentLyricIndex = 0
+
+        if (lyrics.isNotEmpty()) {
+            val lyricScrollDuration = duration * 1000 / lyrics.size
+
+            timer = Timer()
+            timer?.scheduleAtFixedRate(object : TimerTask() {
+                override fun run() {
+                    runOnUiThread {
+                        if (currentLyricIndex < lyrics.size) {
+                            lyricTextView.text = lyrics[currentLyricIndex]
+                            currentLyricIndex++
+                        } else {
+                            stopLyricScrolling()
+                        }
+                    }
+                }
+            }, 0, lyricScrollDuration.toLong())
+        }
+    }
+
+    private fun stopLyricScrolling() {
+        timer?.cancel()
+        timer = null
     }
 
     private fun updateThumbnail(jcAudio: JcAudio?) {
@@ -207,5 +250,31 @@ class OnlinePlaying : AppCompatActivity() {
         super.onDestroy()
         // Dismiss ProgressDialog if it's showing
         progressDialog.dismiss()
+        
+    private fun processLyrics(lyric: String): List<String> {
+        val lyricsList = mutableListOf<String>()
+        if (lyric.contains("\\n")) {
+            val lyricsArray = lyric.split("\\n")
+            lyricsList.addAll(lyricsArray)
+        } else {
+            lyricsList.add(lyric)
+        }
+        return lyricsList
+    }
+
+    private fun convertDurationToSeconds(durationString: String?): Int {
+        if (durationString == null) {
+            return -1
+        }
+        val parts = durationString.split(":")
+        if (parts.size != 2) {
+            return -1
+        }
+        val minutes = parts[0].toIntOrNull()
+        val seconds = parts[1].toIntOrNull()
+        if (minutes == null || seconds == null) {
+            return -1
+        }
+        return minutes * 60 + seconds
     }
 }

@@ -20,6 +20,7 @@ class OnlineAlbum : AppCompatActivity() {
     private lateinit var songsUrlList: MutableList<String?>
     private lateinit var songsArtistList: MutableList<String?>
     private lateinit var songsDurationList: MutableList<String?>
+    private lateinit var songLyricList: MutableList<String?>
     private lateinit var adapter: ListAdapter
     private lateinit var jcPlayerView: JcPlayerView
     private lateinit var jcAudios: MutableList<JcAudio>
@@ -46,6 +47,8 @@ class OnlineAlbum : AppCompatActivity() {
                 val selectedSong = position
                 val intent = Intent(this, OnlinePlaying::class.java)
                 intent.putExtra("songId", selectedSong)
+                intent.putExtra("lyric", songLyricList[position])
+                intent.putExtra("duration", songsDurationList[position])
                 intent.putExtra("thumbnail", ArrayList(thumbnail))
                 intent.putParcelableArrayListExtra("jcAudios", ArrayList(jcAudios))
                 startActivity(intent)
@@ -59,6 +62,7 @@ class OnlineAlbum : AppCompatActivity() {
     private fun initializeViews() {
         listView = findViewById(R.id.songsList)
         songsNameList = mutableListOf()
+        songLyricList = mutableListOf()
         songsUrlList = mutableListOf()
         songsArtistList = mutableListOf()
         songsDurationList = mutableListOf()
@@ -77,12 +81,13 @@ class OnlineAlbum : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val querySnapshot = task.result
                     for (document in querySnapshot) {
-                        val songName = document.getString("songName")
-                        val songUrl = document.getString("songUrl")
-                        val songArtist = document.getString("songArtist")
-                        val songDuration = document.getString("songDuration")
-                        val imageUrl = document.getString("imageUrl")
-
+                        val songName = document.getString("songName") ?: ""
+                        val songUrl = document.getString("songUrl") ?: ""
+                        val songArtist = document.getString("songArtist") ?: ""
+                        val songDuration = document.getString("songDuration") ?: ""
+                        val imageUrl = document.getString("imageUrl") ?: ""
+                        val songLyric = document.getString("lyric") ?: ""
+                        songLyricList.add(songLyric)
                         songsNameList.add(songName)
                         songsUrlList.add(songUrl)
                         songsArtistList.add(songArtist)
