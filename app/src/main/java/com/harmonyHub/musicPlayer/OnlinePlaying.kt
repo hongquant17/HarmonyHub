@@ -19,7 +19,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.harmonyHub.musicPlayer.databinding.ActivityOnlinePlayingBinding
 import com.squareup.picasso.Picasso
-import java.util.*
+import java.util.Timer
+import java.util.TimerTask
 
 class OnlinePlaying : AppCompatActivity() {
 
@@ -155,6 +156,7 @@ class OnlinePlaying : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         stopLyricScrolling()
+        progressDialog.dismiss()
     }
 
     override fun onResume() {
@@ -245,12 +247,6 @@ class OnlinePlaying : AppCompatActivity() {
     }
 
 
-
-    override fun onDestroy() {
-        super.onDestroy()
-        // Dismiss ProgressDialog if it's showing
-        progressDialog.dismiss()
-        
     private fun processLyrics(lyric: String): List<String> {
         val lyricsList = mutableListOf<String>()
         if (lyric.contains("\\n")) {
